@@ -1,4 +1,5 @@
 import React from "react";
+
 import searchColleges from "./searchColleges";
 
 class Search extends Component  {
@@ -39,3 +40,5 @@ render(){
     </Jumbotron>
   )
 }
+
+ecport default Search
