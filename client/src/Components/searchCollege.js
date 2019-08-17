@@ -1,4 +1,4 @@
-function searchcollgeName(props) {
+function searchCollgeName(props) {
     return (
       <form className="search">
         <div className="input">
