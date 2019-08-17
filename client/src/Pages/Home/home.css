@@ -1,0 +1,19 @@
+.Home {
+    background-image: url(../../images/IvyClipart2.png);
+    background-repeat: no-repeat;
+    width: 100%;
+  }
+
+form {
+    margin-left: 25%;
+    margin-right: 25%;
+}
+
+#newUsers {
+    margin-left: 25%;
+    margin-right: 25%;
+}
+
+.jumbotron {
+    padding: 15px;
+}
