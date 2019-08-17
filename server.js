@@ -4,6 +4,7 @@ const PORT = process.env.PORT || 3001;
 const app = express();
 const morgan = require('morgan');
 const mongoose = require('mongoose');
+const connection = require('./server/database/index')
 const MongoStore = require('connect-mongo') (session)
 const session = require('express-session');
 const passport = require('passport')
@@ -16,7 +17,7 @@ app.use(morgan('dev'));
 
 app.use(session({
   secret: "College",
-  store: MongoStore({}),
+  store: MongoStore({connection}),
   resave: false,
   saveUninitialized: false
 }));
