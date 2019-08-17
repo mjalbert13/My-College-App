@@ -1,15 +1,52 @@
-import React, {Component} from 'react';
 
-class SearchPage extends Component {
+import React, {Component} from 'react';
+import searchColleges from "./Components/searchColleges";
+
+
+class Search extends Component  {
+  state =  {
+    colleges: [],
+    location: [],
+  }
+}
+
+searchColleges = (name, cost, state, size,) => {
+    API.search(query)
+      .then(res => this.setState({ result: res.data }))
+      .catch(err => console.log(err));
+  };
+
+handleInputChange = event => {
+    const value = event.target.value;
+    const name = event.target.name;
+    this.setState({
+      [name]: value
+    });
+  };
+
+  handleFormSubmit = event => {
+    event.preventDefault();
+    this.searchColleges(this.state.search );
+    this.
+  };
 
     render(){
         return (
+         
+          <div>              
+      <Jumbotron>
+      <h1 className="Text-center">
+      <strong>Find your college:</strong>
+      </h1>
+      <h2 className="text-center">Search your College using the criteria below
+      to find your dream school</h2>
+    </Jumbotron>
+  
 
-            <div>
-                <div className="container">
-                    <form>
+        <div className="container">              
+          <form>
 
-                        <div class="form-group">
+                       <div class="form-group">
                             <label for="searchName">Name of College/University</label>
                             <input type="text" class="form-control" id="searchName" placeholder="Marquette"></input>
                         </div>
