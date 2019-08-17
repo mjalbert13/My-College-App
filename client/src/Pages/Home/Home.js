@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 // import API from "../utils/API";
 import "./home.css";
-import column from "../../images/column.png";
+// import column from "../../images/column.png";
 
 class Home extends Component {
     // state = {
