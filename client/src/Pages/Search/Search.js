@@ -1,6 +1,5 @@
 import React from "react";
-
-import searchColleges from "./searchColleges";
+import searchColleges from "./Components/searchColleges";
 
 class Search extends Component  {
   state =  {
@@ -25,7 +24,7 @@ handleInputChange = event => {
 
   handleFormSubmit = event => {
     event.preventDefault();
-    this.searchMovies(this.state.search );
+    this.searchColleges(this.state.search );
     this.
   };
 
