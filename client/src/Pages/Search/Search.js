@@ -1,34 +1,44 @@
 import React from "react";
-import style from "./search.css"
 
+import searchColleges from "./searchColleges";
 
-// Using the datalist element we can create autofill suggestions based on the props.breeds array
-function SearchForm(props) {
-    return (
-      <form className="search">
-        <div className="form-group">
-          <label htmlFor="school">School Name:</label>
-          <input
-            value={props.search}
-            onChange={props.handleInputChange}
-            name="school"
-            list="schools"
-            type="text"
-            className="form-control"
-            placeholder="Type in a dog breed to begin"
-            id="breed"
-          />
-          <datalist id="breeds">
-            {props.breeds.map(breed => (
-              <option value={breed} key={breed} />
-            ))}
-          </datalist>
-          <button type="submit" onClick={props.handleFormSubmit} className="btn btn-success">
-            Search
-          </button>
-        </div>
-      </form>
-    );
+class Search extends Component  {
+  state =  {
+    colleges: [],
+    location: [],
   }
-  
-  export default SearchForm;
+}
+
+searchColleges = (name, cost, state, size,) => {
+    API.search(query)
+      .then(res => this.setState({ result: res.data }))
+      .catch(err => console.log(err));
+  };
+
+handleInputChange = event => {
+    const value = event.target.value;
+    const name = event.target.name;
+    this.setState({
+      [name]: value
+    });
+  };
+
+  handleFormSubmit = event => {
+    event.preventDefault();
+    this.searchMovies(this.state.search );
+    this.
+  };
+
+render(){
+  return(
+    <Jumbotron>
+      <h1 className="Text-center">
+      <strong>Find your college:</strong>
+      </h1>
+      <h2 className="text-center">Search your College using the criteria below
+      to find your dream school</h2>
+    </Jumbotron>
+  )
+}
+
+ecport default Search
