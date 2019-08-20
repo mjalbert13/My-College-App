@@ -1,16 +1,21 @@
-import react from "react";
-
 import React, { Component } from "react";
+import axios from 'axios'
 import "./style.css";
 
 class Form extends Component {
+  constructor() {
+    super()
   // Setting the component's initial state
-  state = {
-    firstName: "",
-    lastName: "",
-    password: "",
-    email:  "",
-  };
+      state = {
+        firstName: "",
+        lastName: "",
+        password: "",
+        confirmPassword: "",
+        email:  ""
+      };
+      this.handleFormSubmit = this.handleFormSubmit.bind(this)
+      this.handleInputChange = this.handleInputChange.bind(this)
+  }
 
   handleInputChange = event => {
     // Getting the value and name of the input which triggered the change
@@ -29,21 +34,31 @@ class Form extends Component {
   handleFormSubmit = event => {
     // Preventing the default behavior of the form submit (which is to refresh the page)
     event.preventDefault();
-    if (!this.state.firstName || !this.state.lastName) {
-      alert("Fill out your first and last name please!");
-    } else if (this.state.password.length < 6) {
-      alert(
-        `Choose a more secure password ${this.state.firstName} ${this.state
-          .lastName}`
-      );
-    } else {
-      alert(`Hello ${this.state.firstName} ${this.state.lastName}`);
-    }
+    
+    axios.post('./user', {
+      name: this.state.name,
+      email: this.state.email,
+      password:this.state.password
+    })
+    .then(response => {
+      if(!response.data.errmsg){
+        this.setState({
+          redirectTo: '/login'
+        })
+      } else{
+        console.log('User allready exists')
+      }
+    })
+    .catch(error => {
+      console.log(error)
+    })
+    
 
     this.setState({
       firstName: "",
       lastName: "",
       password: "",
+      confirmPassword:"",
       email: "",
     });
   };
@@ -72,6 +87,13 @@ class Form extends Component {
           />
           <input
             value={this.state.password}
+            name="password"
+            onChange={this.handleInputChange}
+            type="password"
+            placeholder="Password"
+          />
+          <input
+            value={this.state.confirmPassword}
             name="password"
             onChange={this.handleInputChange}
             type="password"
