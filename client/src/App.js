@@ -3,6 +3,7 @@ import Home from "./pages/Home/Home";
 import logo from "./logo.svg";
 import "./App.css";
 import FaqPage from './Pages/FAQ/Faq'
+import Register from "./Components/searchForms/register"
 
 
 class App extends Component {
@@ -11,7 +12,7 @@ class App extends Component {
 
       
       <div className="App">
-        <Home />
+        <Register />
 
       </div>
     )
