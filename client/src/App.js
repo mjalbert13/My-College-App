@@ -5,12 +5,14 @@ import "./App.css";
 // import Navbar from "./components/Navbar";
 // import SearchPage from "./Pages/Search/Search";
 import Home from "./pages/Home/Home.js";
+import Register from './Components/searchForms/register'
+
 
 class App extends Component {
   render (){
     return (
       <div className="Home">
-        <Home />
+        <Register />
       </div>
     );
   }
