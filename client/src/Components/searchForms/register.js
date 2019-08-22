@@ -37,6 +37,7 @@ class Form extends Component {
     // Preventing the default behavior of the form submit (which is to refresh the page)
     event.preventDefault();
     
+
     axios.post('/users/', {
       firstName: this.state.firstName,
       lastName:this.state.lastName,
