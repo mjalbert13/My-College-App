@@ -2,13 +2,15 @@ const express = require("express");
 const path = require("path");
 const PORT = process.env.PORT || 3001;
 const app = express();
+const session = require('express-session')
 const morgan = require('morgan');
 const mongoose = require('mongoose');
-const connection = require('./server/database/index')
+const connection = require('./client/passport/database/index')
 const MongoStore = require('connect-mongo') (session)
-const session = require('express-session');
 const passport = require('passport')
-const user = require('./server/routes/usersRoutes');
+const user = require('./client/passport/database/models/users');
+
+mongoose.connect("mongodb://localhost/mycollegeapp", {useNewUrlParser: true});
 
 // const BASEURL = "https://api.data.gov/ed/collegescorecard/v1/schools?";
 // const SEARCH = "&&_fields=id,school.name,school.state,latest.student.size,latest.cost.avg_net_price.private,latest.cost.avg_net_price.public";
@@ -21,7 +23,6 @@ app.use(morgan('dev'));
 
 app.use(session({
   secret: "College",
-  store: MongoStore({connection}),
   resave: false,
   saveUninitialized: false
 }));

@@ -1,17 +1,16 @@
 import React, { Component } from "react";
 import axios from 'axios'
-import "./style.css";
 
 class Form extends Component {
   constructor() {
     super()
   // Setting the component's initial state
-      state = {
+      this.state = {
         firstName: "",
         lastName: "",
         password: "",
         confirmPassword: "",
-        email:  ""
+        email: ""
       };
       this.handleFormSubmit = this.handleFormSubmit.bind(this)
       this.handleInputChange = this.handleInputChange.bind(this)
@@ -25,9 +24,11 @@ class Form extends Component {
     if (name === "password") {
       value = value.substring(0, 15);
     }
+    console.log(name)
     // Updating the input's state
     this.setState({
       [name]: value
+
     });
   };
 
@@ -35,8 +36,9 @@ class Form extends Component {
     // Preventing the default behavior of the form submit (which is to refresh the page)
     event.preventDefault();
     
-    axios.post('./user', {
-      name: this.state.name,
+    axios.post('/', {
+      firstName: this.state.firstName,
+      lastName:this.state.lastName,
       email: this.state.email,
       password:this.state.password
     })
@@ -66,12 +68,13 @@ class Form extends Component {
   render() {
     // Notice how each input has a `value`, `name`, and `onChange` prop
     return (
-      <div>
+      <div className="container">
         <p>
           Hello {this.state.firstName} {this.state.lastName}
         </p>
         <form className="form">
           <input
+            className="form-control"
             value={this.state.firstName}
             name="firstName"
             onChange={this.handleInputChange}
@@ -79,6 +82,7 @@ class Form extends Component {
             placeholder="First Name"
           />
           <input
+            className="form-control"
             value={this.state.lastName}
             name="lastName"
             onChange={this.handleInputChange}
@@ -86,6 +90,7 @@ class Form extends Component {
             placeholder="Last Name"
           />
           <input
+            className="form-control"
             value={this.state.password}
             name="password"
             onChange={this.handleInputChange}
@@ -93,20 +98,22 @@ class Form extends Component {
             placeholder="Password"
           />
           <input
+            className="form-control"
             value={this.state.confirmPassword}
-            name="password"
+            name= "confirmPassword"
             onChange={this.handleInputChange}
             type="password"
             placeholder="Password"
           />
           <input
+          className="form-control"
           value={this.state.email}
           name="email"
           onChange={this.handleInputChange}
           type="email"
           placeholder="name@domain.com"
         />
-        <button onClick={this.handleFormSubmit}>Submit</button>
+        <button className="btn btn-primary" onClick={this.handleFormSubmit}>Submit</button>
         </form>
       </div>
     );
