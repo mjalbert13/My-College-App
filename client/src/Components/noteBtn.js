@@ -54,23 +54,14 @@ class App extends React.Component {
           contentLabel="Example Modal"
         >
 
-          <h2 ref={subtitle => this.subtitle = subtitle}>Hello</h2>
+              <h2 ref={subtitle => this.subtitle = subtitle}></h2>
           <button onClick={this.closeModal}>close</button>
           <div>Enter in your notes about the school here:</div>
           <form>
-            <input
-            <div className="form">
-            handleInputChange={this.handleInputChange}
-            </div>
-
-            
-           />
-
-
-
-          </form>
-        </Modal>
-      </div>
+        <textarea className="form-control" id="noteForm"></textarea>
+         </form>
+         </Modal>
+         </div>
     );
   }
 }
