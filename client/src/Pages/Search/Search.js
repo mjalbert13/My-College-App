@@ -1,4 +1,5 @@
 import API from "../../utils/Api";
+import Jumbotron from "../..//Components/jumbotron/jumbotron"
 import React, {Component} from 'react';
 // import searchColleges from "./Components/searchColleges";
 
@@ -44,13 +45,13 @@ handleInputChange = event => {
         return (
          
           <div>              
-      {/* <Jumbotron>
-      <h1 className="Text-center">
-      <strong>Find your college:</strong>
-      </h1>
-      <h2 className="text-center">Search your College using the criteria below
-      to find your dream school</h2>
-    </Jumbotron> */}
+            <Jumbotron>
+            <h1 className="Text-center">
+            <strong>Find your college:</strong>
+            </h1>
+            <h2 className="text-center">Search your College using the criteria below
+            to find your dream school</h2>
+          </Jumbotron>
   
 
         <div className="container">              
