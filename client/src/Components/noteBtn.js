@@ -64,6 +64,10 @@ class App extends React.Component {
          </form>
          </Modal>
          </div>
+  
+   )
+    }
+  }
 
-            
+         
 ReactDOM.render(<App />, appElement);
