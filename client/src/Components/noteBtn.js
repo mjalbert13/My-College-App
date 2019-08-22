@@ -64,13 +64,10 @@ class App extends React.Component {
             </div>
 
             
-            
-            
-            />
-            <button>tab navigation</button>
-            <button>stays</button>
-            <button>inside</button>
-            <button>the modal</button>
+           />
+
+
+
           </form>
         </Modal>
       </div>
