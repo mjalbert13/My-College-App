@@ -1,22 +1,27 @@
-import React, { Component } from "react";
-import Home from "./pages/Home/Home";
-import logo from "./logo.svg";
-import "./App.css";
-import FaqPage from './Pages/FAQ/Faq'
-import Register from "./Components/searchForms/register"
 
+
+// import Navbar from "./components/Navbar";
+// import SearchPage from "./pages/Search/Search";
+import Home from "./pages/Home/Home.js";
+// import Register from './Components/searchForms/register'
 
 class App extends Component {
   render (){
     return (
 
       
-      <div className="App">
+
+     <div className="App">
         <Register />
 
-      </div>
-    )
 
+      <div className="Home">
+        <Home />
+        {/* <Navbar /> */}
+        {/* <SearchPage /> */}
+
+      </div>
+    );
   }
 }
 export default App;
