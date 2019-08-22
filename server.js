@@ -12,6 +12,10 @@ const user = require('./client/passport/database/models/users');
 
 mongoose.connect("mongodb://localhost/mycollegeapp", {useNewUrlParser: true});
 
+// const BASEURL = "https://api.data.gov/ed/collegescorecard/v1/schools?";
+// const SEARCH = "&&_fields=id,school.name,school.state,latest.student.size,latest.cost.avg_net_price.private,latest.cost.avg_net_price.public";
+// const key = process.env.KEY;
+
 // Define middleware here
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
