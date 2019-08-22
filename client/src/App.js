@@ -1,9 +1,13 @@
 import React, { Component } from "react";
-import Home from "./pages/Home/Home";
-import logo from "./logo.svg";
 import "./App.css";
 import FaqPage from './Pages/FAQ/Faq'
 import Register from "./Components/searchForms/register"
+
+// import FaqPage from './Pages/FAQ/Faq'
+// import Navbar from "./components/Navbar";
+// import SearchPage from "./Pages/Search/Search";
+import Home from "./pages/Home/Home.js";
+import Register from './Components/searchForms/register'
 
 
 class App extends Component {
@@ -14,9 +18,10 @@ class App extends Component {
       <div className="App">
         <Register />
 
+      <div className="Home">
+        <Register />
       </div>
-    )
-
+    );
   }
 }
 export default App;

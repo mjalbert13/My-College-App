@@ -2,12 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Modal from 'react-modal';
 
-class noteBtn extends Comment {
-    state ={
-       
-    }
-}
-
 class App extends React.Component {
   constructor() {
     super();
@@ -20,14 +14,6 @@ class App extends React.Component {
     this.afterOpenModal = this.afterOpenModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
   }
-
-  handleInputChange = event => {
-    const value = event.target.value;
-    const name = event.target.name;
-    this.setState({
-      [name]: value
-    });
-  };
 
   openModal() {
     this.setState({modalIsOpen: true});
@@ -42,37 +28,42 @@ class App extends React.Component {
     this.setState({modalIsOpen: false});
   }
 
+  handleInputChange = event => {
+    const value = event.target.value;
+    const name = event.target.name;
+    this.setState({
+      [name]: value
+    });
+  };
+
+  openModal() {
+    this.setState({modalIsOpen: true});
+  }
+
+
+  closeModal() {
+    this.setState({modalIsOpen: false});
+  }
+
   render() {
     return (
-      <div>
-        <button onClick={this.openModal}>Open Modal</button>
-        <Modal
-          isOpen={this.state.modalIsOpen}
-          onAfterOpen={this.afterOpenModal}
-          onRequestClose={this.closeModal}
-          style={customStyles}
-          contentLabel="Example Modal"
+       <div>
+         <button onClick={this.openModal}>Open Modal</button>
+      <Modal
+           isOpen={this.state.modalIsOpen}
+           onAfterOpen={this.afterOpenModal}
+           onRequestClose={this.closeModal}
+           style={customStyles}
+           contentLabel="Example Modal"
         >
-
-          <h2 ref={subtitle => this.subtitle = subtitle}>Hello</h2>
+          <h2 ref={subtitle => this.subtitle = subtitle}></h2>
           <button onClick={this.closeModal}>close</button>
           <div>Enter in your notes about the school here:</div>
           <form>
-            <input
-            <div className="form">
-            handleInputChange={this.handleInputChange}
-            </div>
+        <textarea className="form-control" id="noteForm"></textarea>
+         </form>
+         </Modal>
+         </div>
 
             
-            
-            
-            />
-          </form>
-        </Modal>
-      </div>
-    );
-  }
-}
-
-
 ReactDOM.render(<App />, appElement);
