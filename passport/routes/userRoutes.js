@@ -1,31 +1,35 @@
 const express = require('express')
 const router = express.Router()
-const User = require('../database/models/user')
-const passport = require('../passport')
+const User = require('../database/models/users')
+const passport = require('passport')
 
 router.post('/', (req, res) => {
     console.log('user signup');
 
-    const { firstName, email, password } = req.body
+    const { firstName, lastName, password, email } = req.body
     // ADD VALIDATION
     User.findOne({ email: email}, (err, user) => {
         if (err) {
             console.log('User.js post error: ', err)
         } else if (user) {
+            console.log("else if ======")
             res.json({
                 error: `Sorry, already a user with the email: ${email}`
             })
         }
         else {
+            console.log("+++++added user")
             const newUser = new User({
                 firstName: firstName,
                 lastName: lastName,
-                email: username,
+                email: email,
                 password: password
             })
+            console.log(newUser)
             newUser.save((err, savedUser) => {
                 if (err) return res.json(err)
                 res.json(savedUser)
+                console.log("user saved")
             })
         }
     })
