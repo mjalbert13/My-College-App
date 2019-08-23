@@ -1,9 +1,8 @@
 // import API from "../../utils/Api";
+import React, {Component} from 'react';
 import Jumbotron from "../..//Components/jumbotron/jumbotron";
 import Colleges from "../../Components/searchForms/colleges";
-import React, {Component} from 'react';
 // import searchColleges from "./Components/searchColleges";
-
 
 class Search extends Component  {
 
@@ -22,6 +21,7 @@ class Search extends Component  {
           <div className="container">              
             <Colleges/>
           </div>
+
         </div>
         )
     }
