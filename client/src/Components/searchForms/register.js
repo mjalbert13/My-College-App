@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import axios from 'axios'
 
+
 class Form extends Component {
   constructor() {
     super()
@@ -36,7 +37,8 @@ class Form extends Component {
     // Preventing the default behavior of the form submit (which is to refresh the page)
     event.preventDefault();
     
-    axios.post('/', {
+
+    axios.post('/users/', {
       firstName: this.state.firstName,
       lastName:this.state.lastName,
       email: this.state.email,
@@ -44,6 +46,7 @@ class Form extends Component {
     })
     .then(response => {
       if(!response.data.errmsg){
+        console.log("something")
         this.setState({
           redirectTo: '/login'
         })
