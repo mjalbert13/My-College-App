@@ -6,6 +6,48 @@ import Colleges from "../../Components/searchForms/colleges";
 
 class Search extends Component  {
 
+  state =  {
+    // colleges: [],
+    // location: [],
+    result: [],
+    search: ""
+  }
+
+  componentDidMount() {
+    this.searchColleges("Marquette");
+    // this.searchColleges("boston%20college");
+    console.log('mount');
+  }
+
+searchColleges = query => {
+  API.search(query)
+  .then(res =>
+    {
+      console.log("query:" + query);
+      this.setState({ result: res.data.results })})
+      .catch(err => console.log(err));
+  };
+
+  // searchColleges = (name, cost, state, size,) => {
+  //   API.search(query)
+  //     .then(res => this.setState({ result: res.data }))
+  //     .catch(err => console.log(err));
+  // };
+
+  handleInputChange = event => {
+    const value = event.target.value;
+    const name = event.target.name;
+    this.setState({
+      [name]: value
+    });
+  };
+
+  handleFormSubmit = event => {
+    event.preventDefault();
+    this.searchColleges(this.state.search );
+  };
+
+
     render(){
         return (
          
