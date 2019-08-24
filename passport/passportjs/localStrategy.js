@@ -1,4 +1,4 @@
-
+const LocalStrategy = require('passport-local')
 const strategy = new LocalStrategy(
     {
         usernameField: 'email'

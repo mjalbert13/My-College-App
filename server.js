@@ -5,7 +5,7 @@ const app = express();
 const session = require('express-session')
 const morgan = require('morgan');
 const mongoose = require('mongoose');
-=
+
 //const connection = require('./client/passport/database/index')
 const MongoStore = require('connect-mongo') (session)
 const passport = require('passport')
@@ -32,6 +32,8 @@ app.use(session({
 
 app.use(passport.initialize());
 app.use(passport.session());
+
+require('./passport/config/passport')(passport);
 
 app.use(bodyParser.json())
 
