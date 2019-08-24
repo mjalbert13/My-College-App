@@ -5,7 +5,7 @@ const app = express();
 const session = require('express-session')
 const morgan = require('morgan');
 const mongoose = require('mongoose');
-=
+
 //const connection = require('./client/passport/database/index')
 const MongoStore = require('connect-mongo') (session)
 const passport = require('passport')
