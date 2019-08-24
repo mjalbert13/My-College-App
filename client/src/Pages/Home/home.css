@@ -1,10 +1,14 @@
 .Home {
-    background-image: url(../../images/IvyClipart2.png);
+    /* background-image: url(../../images/IvyClipart2.png); */
+    background-image: url("https://images.pexels.com/photos/163143/sackcloth-sackcloth-textured-laptop-ipad-163143.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500");
     background-repeat: no-repeat;
+    background-size: cover;
     width: 100%;
-  }
+}
 
 form {
+    /* margin: 0,auto; */
+    /* max-width: 30%; */
     margin-left: 25%;
     margin-right: 25%;
 }
@@ -16,4 +20,9 @@ form {
 
 .jumbotron {
     padding: 15px;
+    /* background-image: url("https://picserio.com/data/out/211/ivy-wallpaper-with-white-background_4257091.jpg"); */
+    background-repeat: no-repeat;
+    /* background-size: "cover"; */
+    width: 100%;
+
 }

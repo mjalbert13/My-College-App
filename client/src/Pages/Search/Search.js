@@ -6,9 +6,12 @@ import Jumbotron from "../../Components/Jumbotron/jumbotron";
 
 class Search extends Component  {
   state =  {
+    school:"",
     colleges: [],
     location: [],
   };
+
+  
 
   // searchColleges = (name, cost, state, size,) => {
   //   API.search(query)
@@ -31,7 +34,7 @@ class Search extends Component  {
 
   render(){
     return (
-      <Container>              
+      <div>              
         <Jumbotron>
           <h1 className="Text-center">
             <strong>Find your college:</strong>
@@ -42,17 +45,17 @@ class Search extends Component  {
 
         <div className="container">              
           <form>
-            <div class="form-group">
+            <div className="form-group">
                 <label for="searchName">Name of College/University</label>
-                <input type="text" class="form-control" id="searchName" placeholder="Marquette"></input>
+                <input type="text" className="form-control" id="searchName" placeholder="Marquette" value={this.state.} ></input>
             </div>
 
-            <div class="form-group">
+            <div className="form-group">
                 <label for="searchState">State</label>
-                <input type="text" class="form-control" id="searchState" placeholder="Nevada"></input>
+                <input type="text" className="form-control" id="searchState" placeholder="Nevada"></input>
             </div>
 
-            <div class="form-group">
+            <div className="form-group">
                 <label for="searchTuition">Average cost of Tuition</label>
                 <select className="form-control" id="searchOptions">
                     <option>0 - 10,000</option>
@@ -63,35 +66,35 @@ class Search extends Component  {
                 </select>
             </div>
 
-            <div class="list-group">
-                <a href="#" class="list-group-item list-group-item-action active">
-                    <div class="d-flex w-100 justify-content-between">
-                    <h5 class="mb-1">Marquette University</h5>
+            <div className="list-group">
+                <a href="#" className="list-group-item list-group-item-action active">
+                    <div className="d-flex w-100 justify-content-between">
+                    <h5 className="mb-1">Marquette University</h5>
                     <small>Milwaukee, WI</small>
                     </div>
-                    <p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
+                    <p className="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
                     <small>Donec id elit non mi porta.</small>
                 </a>
-                <a href="#" class="list-group-item list-group-item-action">
-                    <div class="d-flex w-100 justify-content-between">
-                    <h5 class="mb-1">Pepperdine University</h5>
-                    <small class="text-muted">Malibu, CA</small>
+                <a href="#" className="list-group-item list-group-item-action">
+                    <div className="d-flex w-100 justify-content-between">
+                    <h5 className="mb-1">Pepperdine University</h5>
+                    <small className="text-muted">Malibu, CA</small>
                     </div>
-                    <p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
-                    <small class="text-muted">Donec id elit non mi porta.</small>
+                    <p className="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
+                    <small className="text-muted">Donec id elit non mi porta.</small>
                 </a>
-                <a href="#" class="list-group-item list-group-item-action">
-                    <div class="d-flex w-100 justify-content-between">
-                    <h5 class="mb-1">Grambling State University</h5>
-                    <small class="text-muted">Grambling, LA</small>
+                <a href="#" className="list-group-item list-group-item-action">
+                    <div className="d-flex w-100 justify-content-between">
+                    <h5 className="mb-1">Grambling State University</h5>
+                    <small className="text-muted">Grambling, LA</small>
                     </div>
-                    <p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
-                    <small class="text-muted">Donec id elit non mi porta.</small>
+                    <p className="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
+                    <small className="text-muted">Donec id elit non mi porta.</small>
                 </a>
             </div>
           </form>
         </div>
-      </Container>
+      </div>
     );
   }
 }
