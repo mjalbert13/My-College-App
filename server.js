@@ -5,7 +5,7 @@ const app = express();
 const session = require('express-session')
 const morgan = require('morgan');
 const mongoose = require('mongoose');
-=
+
 //const connection = require('./client/passport/database/index')
 const MongoStore = require('connect-mongo') (session)
 const passport = require('passport')
@@ -13,11 +13,6 @@ const passport = require('passport')
 const bodyParser = require('body-parser')
 const routes = require('./passport/routes/userRoutes')
 mongoose.connect("mongodb://localhost/mycollegeapp", {useNewUrlParser: true});
-
-
-// const BASEURL = "https://api.data.gov/ed/collegescorecard/v1/schools?";
-// const SEARCH = "&&_fields=id,school.name,school.state,latest.student.size,latest.cost.avg_net_price.private,latest.cost.avg_net_price.public";
-// const key = process.env.KEY;
 
 // Define middleware here
 app.use(express.urlencoded({ extended: true }));
