@@ -1,6 +1,9 @@
 import API from "../../utils/Api";
 import Jumbotron from "../..//Components/jumbotron/jumbotron"
 import React, {Component} from 'react';
+import { BrowserRouter Link} from "react-router-dom";
+import pageNav from "../../Components/pageNav";
+
 // import searchColleges from "./Components/searchColleges";
 
 
@@ -49,8 +52,9 @@ searchColleges = query => {
     render(){
       console.log(this.state.result, 'IN RENDER')
         return (
-         
-          <div>              
+         <pageNav>
+          <div> 
+            <nav>             
             <Jumbotron>
             <h1 className="Text-center">
             <strong>Find your college:</strong>

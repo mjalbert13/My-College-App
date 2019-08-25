@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 // import API from "../utils/API";
 import "./home.css";
+import "../../Components/searchForms/register";
+import registerForm from "../../Components/searchForms/register";
 // import column from "../../images/column.png";
 
 class Home extends Component {
@@ -10,6 +12,7 @@ class Home extends Component {
     
     render() {
         return (
+            <div>
             <div className="container">
                 <div className="row">
                     <div className="col">
@@ -38,13 +41,9 @@ class Home extends Component {
                     </div>
                 </div>
                 <br></br>
-                <div className="row">
-                    <div className="col" id="newUsers">
-                        <h3>New users:</h3>
-                        <button type="submit" className="btn btn-success">Register</button>
-                    </div>
+                <registerForm />
                 </div>
-            </div>
+                        
         );
       }
     }
