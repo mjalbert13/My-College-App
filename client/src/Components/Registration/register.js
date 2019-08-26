@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import axios from 'axios'
+import "./register.css"
 
 
 class Form extends Component {
@@ -72,26 +73,37 @@ class Form extends Component {
     // Notice how each input has a `value`, `name`, and `onChange` prop
     return (
       <div className="container">
-        <p>
-          Hello {this.state.firstName} {this.state.lastName}
-        </p>
+        <div className="row mt-3">
+        <div className="col-md-6 m-auto">
+          <div className="card card-body">
+        <h1 className="text-center mb-3">
+        <i class="fas fa-user-plus"></i>  Register
+        </h1>
         <form className="form">
+          <div className="form-group">
+          <label for="firstName">First Name</label>
           <input
             className="form-control"
             value={this.state.firstName}
             name="firstName"
             onChange={this.handleInputChange}
             type="text"
-            placeholder="First Name"
+            placeholder="John"
           />
+          </div>
+          <div className="form-group">
+          <label for="lastName">Last Name</label>
           <input
             className="form-control"
             value={this.state.lastName}
             name="lastName"
             onChange={this.handleInputChange}
             type="text"
-            placeholder="Last Name"
+            placeholder="Smith"
           />
+          </div>
+          <div className="form-group">
+          <label for="Password">Password</label>
           <input
             className="form-control"
             value={this.state.password}
@@ -100,6 +112,9 @@ class Form extends Component {
             type="password"
             placeholder="Password"
           />
+          </div>
+          <div className="form-group">
+          <label for="passwor-confirm">Confirm Password</label>
           <input
             className="form-control"
             value={this.state.confirmPassword}
@@ -108,6 +123,9 @@ class Form extends Component {
             type="password"
             placeholder="Password"
           />
+          </div>
+          <div className="form-group">
+          <label for="email">Email</label>
           <input
           className="form-control"
           value={this.state.email}
@@ -116,8 +134,12 @@ class Form extends Component {
           type="email"
           placeholder="name@domain.com"
         />
-        <button className="btn btn-primary" onClick={this.handleFormSubmit}>Submit</button>
+        </div>
+        <button className="btn btn-success btn-block" onClick={this.handleFormSubmit}>Register</button>
         </form>
+        </div>
+        </div>
+        </div>
       </div>
     );
   }

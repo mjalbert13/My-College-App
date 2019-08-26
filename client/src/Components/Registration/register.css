@@ -1,0 +1,14 @@
+.card {
+    background: silver;
+    border-radius: 25px;
+}
+
+.form {
+    border-radius: 25px;
+    text-align: center;
+}
+
+input {
+    background: silver;
+    border-radius: 25px;
+}
