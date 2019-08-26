@@ -23,11 +23,17 @@ class Home extends Component {
         this.setState({
             [name]: value
         });
-        console.log(name)
+        console.log("Name: "+name)
+        console.log("Value: "+value)
+        console.log("Password State: "+this.state.password)
+        console.log("Email State"+this.state.email)
     }
 
     handleFormSubmit = event => {
         event.preventDefault();
+        
+        console.log(this.state.email)
+        console.log(this.state.password)
 
         axios.post('/users/login', {
             email: this.state.email,
@@ -35,6 +41,7 @@ class Home extends Component {
         })
         .then(response => {
             if(!response.data.errmsg){
+                
                 console.log("Logged in!")
                 
             } else {
@@ -67,25 +74,27 @@ class Home extends Component {
                     <div className="col">
                         <form>
                         <h3>Returning users:</h3>
-                        <div className="form-group">
-                            <label htmlFor="username">Email</label>
+                         <div className="form-group"> 
+                            <label htmlFor="email">Email</label>
                             <input 
                             type="text" 
                             className="form-control" 
                             id="email" 
                             aria-describedby="username" 
                             placeholder="Enter Email"
+                            name="email"
                             onChange ={this.handleInputChange}></input>
-                        </div>
-                        <div className="form-group">
+                            </div>
+                            <div className="form-group"> 
                             <label htmlFor="exampleInputPassword1">Password</label>
                             <input 
                             type="password" 
                             className="form-control" 
                             id="exampleInputPassword1" 
                             placeholder="Password"
+                            name="password"
                             onChange={this.handleInputChange}></input>
-                        </div>
+                            </div> 
                         <button 
                         type="submit" 
                         className="btn btn-primary"
