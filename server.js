@@ -28,6 +28,8 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 
+require('./passport/config/passport')(passport);
+
 app.use(bodyParser.json())
 
 // Serve up static assets (usually on heroku)
