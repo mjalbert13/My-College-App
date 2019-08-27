@@ -1,15 +1,26 @@
 import React from "react";
 import API from "../../utils/Api";
+import APIZip from "../../utils/ApiByZip";
 
 class Colleges extends React.Component {
 
     state = {
         college: "",
+        searchedZip: "",
         result: []
     }
 
     searchColleges = query => {
         API.search(query)
+        .then(res =>
+          {
+            console.log("query:" + query);
+            this.setState({ result: res.data.results })})
+            .catch(err => console.log(err));
+        };
+
+    searchByZip = query => {
+        APIZip.search(query)
         .then(res =>
           {
             console.log("query:" + query);
@@ -28,6 +39,7 @@ class Colleges extends React.Component {
       handleFormSubmit = event => {
         event.preventDefault();
         this.searchColleges(this.state.college);
+        this.searchByZip(this.state.searchedZip);
       };
     
   render () {
@@ -48,12 +60,12 @@ class Colleges extends React.Component {
             <br></br>
             <input
               onChange={this.handleInputChange}
-              value={this.state.state}
-              name="state"
+              value={this.state.searchedZip}
+              name="searchedZip"
               type="text"
               className="form-control"
-              placeholder="Search for a College by State"
-              id="state"
+              placeholder="Search for a College by Zip Code"
+              id="searchedZip"
             />
             <br></br>
             <div class="form-group">
