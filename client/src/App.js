@@ -1,8 +1,15 @@
+ \
+import React, { Component } from "react";
+import "./App.css";
+import FaqPage from './Pages/FAQ/Faq'
+// import Register from "./Components/searchForms/register"
+
+// import FaqPage from './Pages/FAQ/Faq'
 import React, {Component} from 'react';
 // import Navbar from "./components/Navbar";
 
 // import SearchPage from "./Pages/Search/Search";
-import Home from "./pages/Home/Home.js";
+// import Home from "./pages/Home/Home.js";
 import Register from './Components/searchForms/register'
 import React, {Component} from 'react';
 
@@ -19,8 +26,6 @@ class App extends Component {
   render (){
     return (
 
-
-      
 
      <div className="App">
 
