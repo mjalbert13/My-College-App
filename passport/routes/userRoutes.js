@@ -1,7 +1,9 @@
 const express = require('express')
 const router = express.Router()
 const User = require('../database/models/users')
-const passport = require('passport')
+var passport = require('passport'),
+    localStrategy = require('passport-local').Strategy;
+// require('../config/passport') (passport)
 
 router.post('/', (req, res) => {
     console.log('user signup');
@@ -48,7 +50,15 @@ router.post('/login', function (req, res, next) {
         };
         res.send(userInfo);
     }
-)
+);
+
+// router.post('/login', (req, res, next) => {
+//     passport.authenticate('local',{
+//         successRedirect: '/search',
+//         failureRedirect: '/login',
+//         failureMessage: "Login unsuccessful"
+//     })(req, res, next)
+// })
 
 router.get('/', (req, res, next) => {
     console.log('===== user!!======')
@@ -69,4 +79,5 @@ router.post('/logout', (req, res) => {
     }
 })
 
+passport.use(localStrategy)
 module.exports = router
