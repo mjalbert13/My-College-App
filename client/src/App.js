@@ -1,11 +1,12 @@
- \
+ 
 import React, { Component } from "react";
 import "./App.css";
+import "axios" from axios;
 import FaqPage from './Pages/FAQ/Faq'
 // import Register from "./Components/searchForms/register"
 
 // import FaqPage from './Pages/FAQ/Faq'
-import React, {Component} from 'react';
+// import React, {Component} from 'react';
 // import Navbar from "./components/Navbar";
 
 // import SearchPage from "./Pages/Search/Search";
