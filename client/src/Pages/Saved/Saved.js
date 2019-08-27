@@ -1,7 +1,11 @@
 import React from "react";
+import pageNav from "../../Components/pageNav";
+import { BrowserRouter Link } from "react-router-dom";
+
 
   render(){
       return (
+        <pageNav>
           <div className="Jumbotron">
           <h1>Checkout your saved Schools.</h1>
           <h2>Add notes about your schools to keep track of your journey</h2>

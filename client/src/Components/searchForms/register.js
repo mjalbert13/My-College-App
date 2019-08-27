@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import axios from 'axios'
 
+class registerForm extends Component {
 
 class Form extends Component {
   constructor() {
@@ -123,5 +124,5 @@ class Form extends Component {
   }
 }
 
-export default Form;
+export default registerForm;
 
