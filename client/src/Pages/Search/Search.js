@@ -3,7 +3,7 @@ import React, {Component} from 'react';
 import Jumbotron from "../..//Components/jumbotron/jumbotron";
 import Colleges from "../../Components/searchForms/colleges";
 // import searchColleges from "./Components/searchColleges";
-
+import axios from 'axios'
 class Search extends Component  {
 
   state =  {
@@ -20,7 +20,7 @@ class Search extends Component  {
   }
 
 searchColleges = query => {
-  API.search(query)
+  axios.search(query)
   .then(res =>
     {
       console.log("query:" + query);
