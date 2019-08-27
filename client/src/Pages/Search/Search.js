@@ -1,8 +1,6 @@
-// import API from "../../utils/Api";
 import React, {Component} from 'react';
 import Jumbotron from "../..//Components/jumbotron/jumbotron";
 import Colleges from "../../Components/searchForms/colleges";
-// import searchColleges from "./Components/searchColleges";
 
 class Search extends Component  {
 
@@ -23,7 +21,7 @@ class Search extends Component  {
           </div>
 
         </div>
-        )
+        );
     }
 }
-export default Search
+export default Search;
