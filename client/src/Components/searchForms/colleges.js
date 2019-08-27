@@ -1,5 +1,6 @@
 import React from "react";
 import API from "../../utils/Api";
+import APIZip from "../../utils/ApiByZip";
 
 class Colleges extends React.Component {
 
@@ -19,7 +20,7 @@ class Colleges extends React.Component {
         };
 
     searchByZip = query => {
-        API.search(query)
+        APIZip.search(query)
         .then(res =>
           {
             console.log("query:" + query);
@@ -37,7 +38,7 @@ class Colleges extends React.Component {
     
       handleFormSubmit = event => {
         event.preventDefault();
-        // this.searchColleges(this.state.college);
+        this.searchColleges(this.state.college);
         this.searchByZip(this.state.searchedZip);
       };
     

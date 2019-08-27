@@ -1,4 +1,6 @@
 import React, {Component} from 'react';
+import { BrowserRouter Link} from "react-router-dom";
+import pageNav from "../../Components/pageNav";
 import Jumbotron from "../..//Components/jumbotron/jumbotron";
 import Colleges from "../../Components/searchForms/colleges";
 
@@ -6,8 +8,9 @@ class Search extends Component  {
 
     render(){
         return (
-         
-          <div>              
+         <pageNav>
+          <div> 
+            <nav>             
             <Jumbotron>
             <h1 className="Text-center">
             <strong>Find your college:</strong>
