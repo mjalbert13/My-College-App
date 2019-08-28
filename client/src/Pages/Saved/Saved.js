@@ -1,11 +1,13 @@
-import React from "react";
-import pageNav from "../../Components/pageNav";
-import { BrowserRouter Link } from "react-router-dom";
+import React ,{Component}from "react";
 
+
+
+class Saved extends Component{ 
 
   render(){
       return (
-        <pageNav>
+        <div>
+          
           <div className="Jumbotron">
           <h1>Checkout your saved Schools.</h1>
           <h2>Add notes about your schools to keep track of your journey</h2>
@@ -23,6 +25,9 @@ import { BrowserRouter Link } from "react-router-dom";
           </div>
         </div>
         </div>
-
+        </div>
       )
   }
+}
+
+export default Saved;

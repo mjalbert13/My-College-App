@@ -2,12 +2,14 @@ import React, {Component} from 'react';
 import Jumbotron from "../..//Components/jumbotron/jumbotron";
 import Colleges from "../../Components/searchForms/colleges";
 
+
 class Search extends Component  {
 
     render(){
         return (
          
-          <div>              
+          <div> 
+                       
             <Jumbotron>
             <h1 className="Text-center">
             <strong>Find your college:</strong>
