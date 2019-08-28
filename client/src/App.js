@@ -1,38 +1,26 @@
- \
 import React, { Component } from "react";
 import "./App.css";
-import FaqPage from './Pages/FAQ/Faq'
-// import Register from "./Components/searchForms/register"
-
-// import FaqPage from './Pages/FAQ/Faq'
-import React, {Component} from 'react';
-// import Navbar from "./components/Navbar";
-
-// import SearchPage from "./Pages/Search/Search";
-// import Home from "./pages/Home/Home.js";
-import Register from './Components/searchForms/register'
-import React, {Component} from 'react';
-
-// import Navbar from "./components/Navbar";
-// import SearchPage from "./pages/Search/Search";
-
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import FaqPage from './Pages/FAQ/Faq';
+import Search from "./Pages/Search/Search";
+import Register from './Components/searchForms/register';
 import Home from "./Pages/Home/Home";
-// import Register from './Components/searchForms/register'
-
-
-// import Register from './Components/searchForms/register'
+import Saved from "./Pages/Saved/Saved";
 
 class App extends Component {
   render (){
     return (
-
-
-     <div className="App">
-
-        <Home />
-
-      </div>
-
+      <Router>
+          <div className="App">
+            <Switch>
+              <Route exact path='/' component={Home}/>
+              <Route exact path='/search' component={Search}/>
+              <Route path='/saved' component={Saved}/>
+              <Route path='/faq' component={FaqPage}/>
+              <Route path='/register' component={Register}/>
+            </Switch>
+          </div>
+        </Router>
     );
   }
 }
