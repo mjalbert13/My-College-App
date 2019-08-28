@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "./App.css";
+
 // import FaqPage from './Pages/FAQ/Faq'
 // import Register from "./Components/searchForms/register"
 import SearchPage from "./pages/Search/Search";
@@ -11,6 +12,8 @@ class App extends Component {
 
      <div className="App">
         {/* <Home /> */}
+
+
         <SearchPage />
         {/* <Register /> */}
       </div>
