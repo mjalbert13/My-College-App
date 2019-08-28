@@ -2,7 +2,6 @@ import React, {Component} from 'react';
 import pageNav from "../../Components/pageNav";
 import { BrowserRouter, Link } from "react-router-dom";
 
-
 class FaqPage extends Component {
 
     render(){
@@ -25,5 +24,6 @@ class FaqPage extends Component {
         )
     }
 };
+
 
 export default FaqPage;

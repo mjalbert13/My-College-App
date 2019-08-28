@@ -1,15 +1,26 @@
 import React from "react";
 import API from "../../utils/Api";
+import APIZip from "../../utils/ApiByZip";
 
 class Colleges extends React.Component {
 
     state = {
         college: "",
+        searchedZip: "",
         result: []
     }
 
     searchColleges = query => {
         API.search(query)
+        .then(res =>
+          {
+            console.log("query:" + query);
+            this.setState({ result: res.data.results })})
+            .catch(err => console.log(err));
+        };
+
+    searchByZip = query => {
+        APIZip.search(query)
         .then(res =>
           {
             console.log("query:" + query);
@@ -28,6 +39,7 @@ class Colleges extends React.Component {
       handleFormSubmit = event => {
         event.preventDefault();
         this.searchColleges(this.state.college);
+        this.searchByZip(this.state.searchedZip);
       };
     
   render () {
@@ -35,7 +47,7 @@ class Colleges extends React.Component {
     <div>
         <form>
           <div className="form-group">
-            <label htmlFor="search">Search:</label>
+            <label htmlFor="search">Search by Name:</label>
             <input
               onChange={this.handleInputChange}
               value={this.state.college}
@@ -46,14 +58,15 @@ class Colleges extends React.Component {
               id="college"
             />
             <br></br>
+            <label htmlFor="zip">Search by Zip (20 mile range):</label>
             <input
               onChange={this.handleInputChange}
-              value={this.state.state}
-              name="state"
+              value={this.state.searchedZip}
+              name="searchedZip"
               type="text"
               className="form-control"
-              placeholder="Search for a College by State"
-              id="state"
+              placeholder="Search for a College by Zip Code"
+              id="searchedZip"
             />
             <br></br>
             <div class="form-group">
@@ -66,6 +79,16 @@ class Colleges extends React.Component {
                     <option>40,000+</option>
                 </select>
             </div>
+            {/* <label htmlFor="cost">Search by Tuition Cost:</label>
+            <input
+              onChange={this.handleInputChange}
+              value={this.state.searchedZip}
+              name="searchedZip"
+              type="text"
+              className="form-control"
+              placeholder="Search for a College by Zip Code"
+              id="searchedZip"
+            /> */}
             <button 
             onClick={this.handleFormSubmit}
              className="btn btn-primary mt-3">

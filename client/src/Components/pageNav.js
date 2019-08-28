@@ -24,8 +24,8 @@ function pageNav() {
         </Link>
       </li>
     </ul>
-
   );
+
 }
 
 export default pageNav;
