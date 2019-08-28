@@ -47,7 +47,7 @@ class Colleges extends React.Component {
     <div>
         <form>
           <div className="form-group">
-            <label htmlFor="search">Search:</label>
+            <label htmlFor="search">Search by Name:</label>
             <input
               onChange={this.handleInputChange}
               value={this.state.college}
@@ -58,6 +58,7 @@ class Colleges extends React.Component {
               id="college"
             />
             <br></br>
+            <label htmlFor="zip">Search by Zip (20 mile range):</label>
             <input
               onChange={this.handleInputChange}
               value={this.state.searchedZip}
@@ -78,6 +79,16 @@ class Colleges extends React.Component {
                     <option>40,000+</option>
                 </select>
             </div>
+            {/* <label htmlFor="cost">Search by Tuition Cost:</label>
+            <input
+              onChange={this.handleInputChange}
+              value={this.state.searchedZip}
+              name="searchedZip"
+              type="text"
+              className="form-control"
+              placeholder="Search for a College by Zip Code"
+              id="searchedZip"
+            /> */}
             <button 
             onClick={this.handleFormSubmit}
              className="btn btn-primary mt-3">
