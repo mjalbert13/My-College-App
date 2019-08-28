@@ -2,10 +2,11 @@ import React, { Component } from "react";
 // import API from "../utils/API";
 import "./home.css";
 import axios from 'axios'
+
 import "../../Components/searchForms/register";
 
+
 import registerForm from "../../Components/searchForms/register";
-// import column from "../../images/column.png";
 
 class Home extends Component {
     constructor() {
@@ -109,10 +110,9 @@ class Home extends Component {
                 </div>
                 <br></br>
                 <registerForm />
-                </div>
-                        
+            </div>
         );
       }
     }
     
-    export default Home;
+export default Home;
