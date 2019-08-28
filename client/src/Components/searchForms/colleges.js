@@ -1,12 +1,17 @@
 import React from "react";
 import API from "../../utils/Api";
 import APIZip from "../../utils/ApiByZip";
+import APICost from "../../utils/ApiByCost";
 
 class Colleges extends React.Component {
 
     state = {
         college: "",
         searchedZip: "",
+        costBegin: "",
+        costEnd: "",
+        // publicChecked: true,
+        // privaChecked: false,
         result: []
     }
 
@@ -28,6 +33,17 @@ class Colleges extends React.Component {
             .catch(err => console.log(err));
         };
 
+    searchByCost = (query1, query2) => {
+        console.log("begin:" + this.state.costBegin);
+        console.log("end:" + this.state.costEnd);
+        APICost.search(this.state.costBegin, this.state.costEnd)
+        .then(res =>
+          {
+            console.log("query1:" + query1 + " query2" + query2);
+            this.setState({ result: res.data.results })})
+            .catch(err => console.log(err));
+        };
+
     handleInputChange = event => {
         const value = event.target.value;
         const name = event.target.name;
@@ -40,6 +56,8 @@ class Colleges extends React.Component {
         event.preventDefault();
         this.searchColleges(this.state.college);
         this.searchByZip(this.state.searchedZip);
+        this.searchByCost(this.state.costBegin, this.state.costEnd);
+        
       };
     
   render () {
@@ -69,7 +87,7 @@ class Colleges extends React.Component {
               id="searchedZip"
             />
             <br></br>
-            <div class="form-group">
+            {/* <div class="form-group">
                 <label for="searchTuition">Average cost of Tuition</label>
                 <select className="form-control" id="searchOptions">
                     <option>0 - 10,000</option>
@@ -78,17 +96,35 @@ class Colleges extends React.Component {
                     <option>30,000 - 40,000</option>
                     <option>40,000+</option>
                 </select>
-            </div>
-            {/* <label htmlFor="cost">Search by Tuition Cost:</label>
+            </div> */}
+            <label htmlFor="cost">Search by Tuition Cost:</label>
+            <br></br>
+            {/* <label>
+                Public Institution:
+                <input
+                    name="public"
+                    type="checkbox"
+                    checked={this.state.publicChecked}
+                    onChange={this.handleInputChange} />
+            </label> */}
             <input
               onChange={this.handleInputChange}
-              value={this.state.searchedZip}
-              name="searchedZip"
+              value={this.state.costBegin}
+              name="costBegin"
               type="text"
               className="form-control"
-              placeholder="Search for a College by Zip Code"
-              id="searchedZip"
-            /> */}
+              placeholder="Tutition Cost Range - Beginning"
+              id="costBegin"
+            />
+            <input
+              onChange={this.handleInputChange}
+              value={this.state.costEnd}
+              name="costEnd"
+              type="text"
+              className="form-control"
+              placeholder="Tutition Cost Range - Ending"
+              id="costEnd"
+            />
             <button 
             onClick={this.handleFormSubmit}
              className="btn btn-primary mt-3">
