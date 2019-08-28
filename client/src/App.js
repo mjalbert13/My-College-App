@@ -1,23 +1,29 @@
 import React, { Component } from "react";
 import "./App.css";
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import FaqPage from './Pages/FAQ/Faq';
+import Search from "./Pages/Search/Search";
+import Register from './Components/searchForms/register';
+import Home from "./Pages/Home/Home";
+import Saved from "./Pages/Saved/Saved";
+import PageNav from './Components/pageNav'
 
-// import FaqPage from './Pages/FAQ/Faq'
-// import Register from "./Components/searchForms/register"
-import SearchPage from "./pages/Search/Search";
-// import Home from "./pages/Home/Home.js";
 
 class App extends Component {
   render (){
     return (
 
-     <div className="App">
-        {/* <Home /> */}
-
-
-        <SearchPage />
-        {/* <Register /> */}
-      </div>
-
+      <Router>
+          <div className="App">
+            <Switch>
+              <Route exact path='/' component={Home}/>
+              <Route exact path='/search' component={Search}/>
+              <Route path='/saved' component={Saved}/>
+              <Route path='/faq' component={FaqPage}/>
+              <Route path='/register' component={Register}/>
+            </Switch>
+          </div>
+        </Router>
     );
   }
 }
