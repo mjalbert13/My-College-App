@@ -2,10 +2,17 @@ import React from "react";
 import pageNav from "../../Components/pageNav";
 import { BrowserRouter Link } from "react-router-dom";
 
+class Saved extends Component {
+   
+    state = {
+      schools = [],
+      message: "Check out your saved schools and add notes"
+    };
+
 
   render(){
       return (
-        <pageNav>
+        <pageNav />
           <div className="Jumbotron">
           <h1>Checkout your saved Schools.</h1>
           <h2>Add notes about your schools to keep track of your journey</h2>
@@ -13,16 +20,16 @@ import { BrowserRouter Link } from "react-router-dom";
         <div className="container">
         <div className="row">
         <div className="col-sm">
-        <strong>School Name:</strong>
-        </div>
-        <div className="col-sm">
-        <strong>State:</strong>
-        </div>
-        <div className="col-sm">
+        {this.state.result.map(result =>(
+          key={name.id}
+          location={college.location}
+          cost={college.cost}
+      ))}
           Notes:
           </div>
         </div>
         </div>
 
       )
+  }
   }
