@@ -6,11 +6,13 @@ import Search from "./Pages/Search/Search";
 import Register from './Components/searchForms/register';
 import Home from "./Pages/Home/Home";
 import Saved from "./Pages/Saved/Saved";
+import PageNav from './Components/pageNav'
 
 
 class App extends Component {
   render (){
     return (
+
       <Router>
           <div className="App">
             <Switch>

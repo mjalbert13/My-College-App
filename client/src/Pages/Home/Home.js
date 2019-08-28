@@ -2,7 +2,10 @@ import React, { Component } from "react";
 // import API from "../utils/API";
 import "./home.css";
 import axios from 'axios'
-// import "../../Components/searchForms/register";
+
+import "../../Components/searchForms/register";
+
+
 import registerForm from "../../Components/searchForms/register";
 
 class Home extends Component {
@@ -61,6 +64,7 @@ class Home extends Component {
     render() {
         return (
             <div className="container">
+                
                 <div className="row">
                     <div className="col">
                         <div className="jumbotron">
