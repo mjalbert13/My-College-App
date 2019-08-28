@@ -1,5 +1,4 @@
 import React from "react";
-// import { Link } from "react-router-dom";
 import { BrowserRouter as Link } from "react-router-dom";
 
 
@@ -11,7 +10,6 @@ function pageNav() {
           Saved Schools
         </Link>
       </li>
-    {/*  */}
         <li className="nav-item">
         <Link
           to="/Search"
@@ -20,16 +18,14 @@ function pageNav() {
           Search for Schools
         </Link>
       </li>
-      {/* */}
          <li className="nav-item">
         <Link to="/" className={window.location.pathname === "/" ? "nav-link active" : "nav-link"}>
           FAQ
         </Link>
       </li>
     </ul>
+  );
 
-   
- );
 }
 
 export default pageNav;
