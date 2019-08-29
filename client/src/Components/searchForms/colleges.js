@@ -43,7 +43,14 @@ class Colleges extends React.Component {
       };
 
       handleCollegeSave = id => {
-        const college = this.state.colleges.find(college => college.id === id);
+        const collegeName = this.state.colleges.find(college => college.id === id);
+
+        API.saveCollege({
+          school: collegeName.school,
+          location: collegeName.location,
+          cost: collegeName.cost,
+        }).then(()=> this.getColleges());
+    };  
     
     
   render () {

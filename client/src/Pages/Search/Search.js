@@ -7,11 +7,7 @@ class Search extends Component  {
 
     render(){
         return (
-
-         
           <div> 
-                       
-
             <Jumbotron>
               <h1 className="Text-center">
               <strong>Find your college:</strong>
