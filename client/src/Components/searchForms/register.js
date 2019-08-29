@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import axios from 'axios'
-
+import '../Register/register.css'
 class registerForm extends Component {
 
   constructor() {
@@ -69,55 +69,74 @@ class registerForm extends Component {
   };
 
   render() {
-    // Notice how each input has a `value`, `name`, and `onChange` prop
+    
     return (
       <div className="container">
-        <p>
-          Hello {this.state.firstName} {this.state.lastName}
-        </p>
-        <form className="form">
-          <input
-            className="form-control"
-            value={this.state.firstName}
-            name="firstName"
-            onChange={this.handleInputChange}
-            type="text"
-            placeholder="First Name"
-          />
-          <input
-            className="form-control"
-            value={this.state.lastName}
-            name="lastName"
-            onChange={this.handleInputChange}
-            type="text"
-            placeholder="Last Name"
-          />
-          <input
-            className="form-control"
-            value={this.state.password}
-            name="password"
-            onChange={this.handleInputChange}
-            type="password"
-            placeholder="Password"
-          />
-          <input
-            className="form-control"
-            value={this.state.confirmPassword}
-            name= "confirmPassword"
-            onChange={this.handleInputChange}
-            type="password"
-            placeholder="Password"
-          />
-          <input
-          className="form-control"
-          value={this.state.email}
-          name="email"
-          onChange={this.handleInputChange}
-          type="email"
-          placeholder="name@domain.com"
-        />
-        <button className="btn btn-primary" onClick={this.handleFormSubmit}>Submit</button>
-        </form>
+        <div className="col-md-6 m-auto">
+          <div className="card card-body">
+            <h1>
+            <i class="fas fa-user-plus"></i>   Register
+            </h1>
+            <form className="form">
+              <div className="form-group">
+                <label for="firstName">First Name</label>
+                <input
+                  className="form-control"
+                  value={this.state.firstName}
+                  name="firstName"
+                  onChange={this.handleInputChange}
+                  type="text"
+                  placeholder="John"
+                />
+              </div>
+              <div className="form-group">
+                <label for="lastName">Last Name</label>
+                <input
+                  className="form-control"
+                  value={this.state.lastName}
+                  name="lastName"
+                  onChange={this.handleInputChange}
+                  type="text"
+                  placeholder="Smith"
+                />
+              </div>
+              <div className="form-group">
+                <label for="password">Password</label>
+                <input
+                  className="form-control"
+                  value={this.state.password}
+                  name="password"
+                  onChange={this.handleInputChange}
+                  type="password"
+                  placeholder="Password"
+                />
+              </div>
+              <div className="form-group">
+                <label for="password-confirm">Confirm Password</label>
+                <input
+                  className="form-control"
+                  value={this.state.confirmPassword}
+                  name= "confirmPassword"
+                  onChange={this.handleInputChange}
+                  type="password"
+                  placeholder="Password"
+                />
+              </div>
+              <div className="form-group">
+                <label for="email">Email</label>
+                <input
+                className="form-control"
+                value={this.state.email}
+                name="email"
+                onChange={this.handleInputChange}
+                type="email"
+                placeholder="name@domain.com"
+                />
+              </div>
+            <button className="btn btn-success btn-block" onClick={this.handleFormSubmit}>Submit</button>
+            </form>
+          </div>
+        </div>
       </div>
     );
   }

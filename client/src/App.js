@@ -6,24 +6,26 @@ import Search from "./Pages/Search/Search";
 import Register from './Components/searchForms/register';
 import Home from "./Pages/Home/Home";
 import Saved from "./Pages/Saved/Saved";
-import PageNav from './Components/pageNav'
+import PageNav from './Components/pageNav';
 
 
 class App extends Component {
   render (){
     return (
-
+    <div>
+      <PageNav />
       <Router>
           <div className="App">
             <Switch>
               <Route exact path='/' component={Home}/>
               <Route exact path='/search' component={Search}/>
-              <Route path='/saved' component={Saved}/>
-              <Route path='/faq' component={FaqPage}/>
-              <Route path='/register' component={Register}/>
+              <Route exact path='/saved' component={Saved}/>
+              <Route exact path='/faq' component={FaqPage}/>
+              <Route exact path='/register' component={Register}/>
             </Switch>
           </div>
         </Router>
+      </div>
     );
   }
 }

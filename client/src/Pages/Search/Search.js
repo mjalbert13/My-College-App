@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import Jumbotron from "../../Components/Jumbotron/jumbotron";
+import Jumbotron from "../../Components/jumbotron/jumbotron";
 import Colleges from "../../Components/searchForms/colleges";
 
 
