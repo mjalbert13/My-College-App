@@ -1,3 +1,5 @@
+import React from "react";
+
 
 class Saved extends Component {
    
@@ -12,7 +14,7 @@ class Saved extends Component {
         <div>
         <pageNav />
         </div>
-          <div className="Jumbotron">
+          <div className="card">
           <h1>Checkout your saved Schools.</h1>
           <h2>Add notes about your schools to keep track of your journey</h2>
           </div>
