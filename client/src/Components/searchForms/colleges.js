@@ -1,7 +1,8 @@
 import React from "react";
 import API from "../../utils/Api";
 import APIZip from "../../utils/ApiByZip";
-import APICost from "../../utils/ApiByCost";
+import APICostPublic from "../../utils/ApiByCostPublic";
+import APICostPrivate from "../../utils/ApiByCostPrivate";
 
 class Colleges extends React.Component {
 
@@ -10,8 +11,8 @@ class Colleges extends React.Component {
         searchedZip: "",
         costBegin: "",
         costEnd: "",
-        // publicChecked: true,
-        // privaChecked: false,
+        publicChecked: false,
+        privateChecked: false,
         result: []
     }
 
@@ -33,16 +34,41 @@ class Colleges extends React.Component {
             .catch(err => console.log(err));
         };
 
-    searchByCost = (query1, query2) => {
+    searchByCostPublic = (query1, query2) => {
+      if (this.state.publicChecked){
         console.log("begin:" + this.state.costBegin);
         console.log("end:" + this.state.costEnd);
-        APICost.search(this.state.costBegin, this.state.costEnd)
+        APICostPublic.search(this.state.costBegin, this.state.costEnd)
         .then(res =>
           {
             console.log("query1:" + query1 + " query2" + query2);
             this.setState({ result: res.data.results })})
             .catch(err => console.log(err));
+      }
         };
+
+    searchByCostPrivate = (query1, query2) => {
+      if (this.state.privateChecked){
+        console.log("begin:" + this.state.costBegin);
+        console.log("end:" + this.state.costEnd);
+        APICostPrivate.search(this.state.costBegin, this.state.costEnd)
+        .then(res =>
+          {
+            console.log("query1:" + query1 + " query2" + query2);
+            this.setState({ result: res.data.results })})
+            .catch(err => console.log(err));
+      }
+        };
+
+    handlePublicCheckBox = event => {
+          this.setState({publicChecked:true, privateChecked:false})
+          console.log(this.state.publicChecked);
+    };
+
+    handlePrivateCheckBox = event => {
+          this.setState({privateChecked:true, publicChecked:false})
+          console.log(this.state.privateChecked);
+    };
 
     handleInputChange = event => {
         const value = event.target.value;
@@ -54,9 +80,19 @@ class Colleges extends React.Component {
     
       handleFormSubmit = event => {
         event.preventDefault();
-        this.searchColleges(this.state.college);
-        this.searchByZip(this.state.searchedZip);
-        this.searchByCost(this.state.costBegin, this.state.costEnd);
+        if (this.state.publicChecked){
+          this.searchByCostPublic(this.state.costBegin, this.state.costEnd);
+        } else if (this.state.privateChecked){
+          this.searchByCostPrivate(this.state.costBegin, this.state.costEnd);
+        } else {
+          alert("Try Again!");
+        }
+        if (this.state.searchedZip != ""){
+          this.searchByZip(this.state.searchedZip);
+        }
+        if (this.state.college != ""){
+          this.searchColleges(this.state.college);
+        }
         
       };
     
@@ -99,14 +135,23 @@ class Colleges extends React.Component {
             </div> */}
             <label htmlFor="cost">Search by Tuition Cost:</label>
             <br></br>
-            {/* <label>
-                Public Institution:
+            <label>
+                Public Institution 
                 <input
                     name="public"
                     type="checkbox"
                     checked={this.state.publicChecked}
-                    onChange={this.handleInputChange} />
-            </label> */}
+                    onChange={this.handlePublicCheckBox} />
+            </label>
+            <br></br>
+            <label>
+                Private Institution 
+                <input
+                    name="private"
+                    type="checkbox"
+                    checked={this.state.privateChecked}
+                    onChange={this.handlePrivateCheckBox} />
+            </label>
             <input
               onChange={this.handleInputChange}
               value={this.state.costBegin}
@@ -137,16 +182,17 @@ class Colleges extends React.Component {
         <h3>Results:</h3>
         {this.state.result.map((result)=>
         <li className="list-group-item" key={result.id}>
-        <a href="#" class="list-group-item list-group-item-action active">
+        <p class="list-group-item list-group-item-action active">
             <div class="d-flex w-100 justify-content-between">
             <h5 class="mb-1">Name: {result['school.name']}</h5>
-            <small>State: {result['school.state']}</small>
+            <small href={result['school.school_url']} target='blank'>State: {result['school.state']}</small>
             <small>Student body size: {result['latest.student.size']}</small>
             <small>Cost (private): {result['latest.cost.avg_net_price.private']}</small>
             <small>Cost (public): {result['latest.cost.avg_net_price.public']}</small>
+            <small><a href={'http://' + result['school.school_url']} target='blank' class="text-white">{result['school.school_url']}</a></small>
             </div>
-        </a>
-        </li> 
+        </p>
+        </li>
         )}
         </ul>
     </div>
