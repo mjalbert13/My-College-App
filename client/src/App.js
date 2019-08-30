@@ -4,12 +4,25 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import FaqPage from './pages/FAQ/Faq';
 import Search from "./pages/Search/Search";
 import Register from './Components/searchForms/register';
+<<<<<<< HEAD
 import Home from "./pages/Home/Home";
 import Saved from "./pages/Saved/Saved";
+=======
+import Home from "./Pages/Home/Home";
+import Saved from "./Pages/Saved/Saved";
+import Login from "./Components/Login/Login"
+>>>>>>> origin
 import PageNav from './Components/pageNav';
 
 
 class App extends Component {
+  constructor(){
+    super()
+    this.state={
+      loggedIn: false
+    }
+  }
+  
   render (){
     return (
     <div>
@@ -22,6 +35,7 @@ class App extends Component {
               <Route exact path='/saved' component={Saved}/>
               <Route exact path='/faq' component={FaqPage}/>
               <Route exact path='/register' component={Register}/>
+              <Route exact path="/login" component={Login}/>
             </Switch>
           </div>
         </Router>

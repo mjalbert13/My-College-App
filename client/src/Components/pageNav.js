@@ -1,9 +1,16 @@
-import React from "react";
+import React, {Component} from "react";
 
 import { BrowserRouter as Router, Link, Route, Switch } from "react-router-dom";
 
+class pageNav extends Component {
 
-function pageNav() {
+  constructor(){
+    super()
+    this.state={
+      loggedIn:false
+    }
+  }
+render() {
   return (
   <Router>
     <nav className="navbar navbar-expand-lg navbar-light bg-light">
@@ -35,7 +42,14 @@ function pageNav() {
         </li>
       </ul>
       <span class="navbar-text">
-        <a className="nav-link" href="/register">Sign up</a>
+        <a className="nav-link" href="/register">Sign up  </a>
+      </span>
+      <span>
+        {this.state.loggedIn ? (
+          <a className="nav-link" href="/logout">Logout</a>
+        ):(
+          <a className="nav-link" href="/login">Login</a>
+        )}
       </span>
       </div>
     </nav>
@@ -46,5 +60,5 @@ function pageNav() {
  );
 
 }
-
+}
 export default pageNav;
