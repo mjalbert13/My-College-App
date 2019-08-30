@@ -94,6 +94,17 @@ class Colleges extends React.Component {
         }
         
       };
+
+      handleCollegeSave = id => {
+        const collegeName = this.state.colleges.find(college => college.id === id);
+
+        API.saveCollege({
+          school: collegeName.school,
+          location: collegeName.location,
+          cost: collegeName.cost,
+        }).then(()=> this.getColleges());
+    };  
+    
     
   render () {
     return (
@@ -179,7 +190,7 @@ class Colleges extends React.Component {
 
         <ul class="list-group">
         <h3>Results:</h3>
-        {this.state.result.map((result)=>
+       {this.state.result.map((result)=>
         <li className="list-group-item" key={result.id}>
         <p class="list-group-item list-group-item-action active">
             <div class="d-flex w-100 justify-content-between">
@@ -188,7 +199,15 @@ class Colleges extends React.Component {
             <small>Student body size: {result['latest.student.size']}</small>
             <small>Cost (private): {result['latest.cost.avg_net_price.private']}</small>
             <small>Cost (public): {result['latest.cost.avg_net_price.public']}</small>
+<<<<<<< HEAD
             <small><a href={'http://' + result['school.school_url']} target='blank' class="text-white">{result['school.school_url']}</a></small>
+=======
+            <button
+                onClick={() => this.handleSchoolSave(result.id)}
+                className="btn btn-primary ml-2">
+                Save
+             </button>
+>>>>>>> origin
             </div>
         </p>
         </li>
