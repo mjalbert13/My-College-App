@@ -77,35 +77,9 @@ class Home extends Component {
                 </div>
                 <div className="row">
                     <div className="col">
-                        <form>
-                        <h3>Returning users:</h3>
-                         <div className="form-group"> 
-                            <label htmlFor="email">Email</label>
-                            <input 
-                            type="text" 
-                            className="form-control" 
-                            id="email" 
-                            aria-describedby="username" 
-                            placeholder="Enter Email"
-                            name="email"
-                            onChange ={this.handleInputChange}></input>
-                            </div>
-                            <div className="form-group"> 
-                            <label htmlFor="exampleInputPassword1">Password</label>
-                            <input 
-                            type="password" 
-                            className="form-control" 
-                            id="exampleInputPassword1" 
-                            placeholder="Password"
-                            name="password"
-                            onChange={this.handleInputChange}></input>
-                            </div> 
-                        <button 
-                        type="submit" 
-                        className="btn btn-primary"
-                        onClick={this.handleFormSubmit}
-                        >Submit</button>
-                        </form>
+                        <div className="card card-body">
+                            Hero!
+                        </div>
                     </div>
                 </div>
                 <br></br>
