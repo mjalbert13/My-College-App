@@ -84,14 +84,13 @@ class Colleges extends React.Component {
           this.searchByCostPublic(this.state.costBegin, this.state.costEnd);
         } else if (this.state.privateChecked){
           this.searchByCostPrivate(this.state.costBegin, this.state.costEnd);
-        } else {
-          alert("Try Again!");
-        }
-        if (this.state.searchedZip != ""){
+        } else if (this.state.searchedZip != "") {
           this.searchByZip(this.state.searchedZip);
-        }
-        if (this.state.college != ""){
+        } else if (this.state.college != "") {
           this.searchColleges(this.state.college);
+        }
+        else {
+          alert("Try Again!");
         }
         
       };

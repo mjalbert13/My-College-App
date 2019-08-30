@@ -1,11 +1,11 @@
 import React, { Component } from "react";
 import "./App.css";
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import FaqPage from './Pages/FAQ/Faq';
-import Search from "./Pages/Search/Search";
+import FaqPage from './pages/FAQ/Faq';
+import Search from "./pages/Search/Search";
 import Register from './Components/searchForms/register';
-import Home from "./Pages/Home/Home";
-import Saved from "./Pages/Saved/Saved";
+import Home from "./pages/Home/Home";
+import Saved from "./pages/Saved/Saved";
 import PageNav from './Components/pageNav';
 
 
