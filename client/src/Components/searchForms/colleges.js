@@ -106,7 +106,7 @@ class Colleges extends React.Component {
         }).then(()=> this.getColleges());
     };  
     
-    handleSavingCollege = event  => {
+    handleSavingCollege = (event,id)  => {
       event.preventDefault();
 
       const savedCollege = this.state.result.id
@@ -224,7 +224,7 @@ class Colleges extends React.Component {
             <small>Cost (public): {result['latest.cost.avg_net_price.public']}</small>
             <small><a href={'http://' + result['school.school_url']} target='blank' class="text-white">{result['school.school_url']}</a></small>
             <button
-                onClick={this.handleSavingCollege}
+                onClick={() => this.handleSchoolSave(result.id)}
                 className="btn btn-danger ml-2">
                 Save
              </button>

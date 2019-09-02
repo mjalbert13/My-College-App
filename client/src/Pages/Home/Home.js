@@ -77,8 +77,9 @@ class Home extends Component {
                 </div>
                 <div className="row">
                     <div className="col">
-                        <div className="card card-body">
+                        <div className="card card-body" id="hero">
                             Hero!
+                            <img src="https://www.onetribemag.com/wp-content/uploads/2017/07/college-clipart-college-fun-fact-friday-your-team-midwest-educated-midwest-driven-clip-art.jpg"></img>
                         </div>
                     </div>
                 </div>

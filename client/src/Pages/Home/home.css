@@ -1,7 +1,5 @@
 .container {
-    background-image: url(../../images/IvyClipart2.png);
-    background-repeat: no-repeat;
-    width: 100vw;
+    
   }
 
 .form {
@@ -16,4 +14,12 @@
 
 .jumbotron {
     padding: 15px;
+}
+
+#hero {
+    
+    background-repeat: no-repeat;
+    height: auto;
+    max-width: 100%;
+    
 }
