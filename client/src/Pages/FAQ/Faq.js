@@ -6,35 +6,38 @@ class FaqPage extends Component {
 
 render(){
       return (
-          <div>
-            <pageNav />
+        <div>
+             
+            <div className = "container">
+                <div className="jumbotron jumbotron-fluid">
+                    <div className="container">
+                        <h1 className="display-4">Need Help?</h1>
+                        <p className="lead">Here are some of the most asked question</p>
+                    </div>
+                </div>
             </div>
-                <div className = "container">
-                    <div className="jumbotron jumbotron-fluid">
-                        <div className="container">
-                            <h1 className="display-4">Need Help?</h1>
-                            <p className="lead">Here are some of the most asked question</p>
-                        </div>
-                    </div>
-                    </div>
-                    <div className="card">
-                       <h3>Why should I use your app?</h3>
-                       <p>We give you chance to enter notes on the go
-                           about the schools you are interested to remember the
-                           important details about the schools you want to go to</p>
-                           </div>
-                           <div className="card">
-                        <h3>What college should I go to? </h3>
-                        <p>I don't know thats why you are here!</p>
-                        </div>
-                        <div className="card">
-                        <h3>How do I begin the search?</h3>
-                        <p>Enter in the criteria of the school or type
-                            of school you want to and save them to your list?
-                       </p>
-                 </div>
+
+            <div className="card">
+                <h3>Why should I use your app?</h3>
+                <p>We give you chance to enter notes on the go
+                    about the schools you are interested to remember the
+                    important details about the schools you want to go to</p>
+            </div>
+
+            <div className="card">
+                <h3>What college should I go to? </h3>
+                <p>I don't know thats why you are here!</p>
+            </div>
+
+            <div className="card">
+                <h3>How do I begin the search?</h3>
+                <p>Enter in the criteria of the school or type
+                    of school you want to and save them to your list?
+                </p>
+            </div>
+
         </div>
-        
+      )
     }
 };
 

@@ -3,6 +3,7 @@ import API from "../../utils/Api";
 import APIZip from "../../utils/ApiByZip";
 import APICostPublic from "../../utils/ApiByCostPublic";
 import APICostPrivate from "../../utils/ApiByCostPrivate";
+import axios from 'axios'
 
 class Colleges extends React.Component {
 
@@ -84,9 +85,9 @@ class Colleges extends React.Component {
           this.searchByCostPublic(this.state.costBegin, this.state.costEnd);
         } else if (this.state.privateChecked){
           this.searchByCostPrivate(this.state.costBegin, this.state.costEnd);
-        } else if (this.state.searchedZip != "") {
+        } else if (this.state.searchedZip !== "") {
           this.searchByZip(this.state.searchedZip);
-        } else if (this.state.college != "") {
+        } else if (this.state.college !== "") {
           this.searchColleges(this.state.college);
         }
         else {
@@ -105,6 +106,28 @@ class Colleges extends React.Component {
         }).then(()=> this.getColleges());
     };  
     
+    handleSavingCollege = event  => {
+      event.preventDefault();
+
+      const savedCollege = this.state.result.id
+      console.log(savedCollege)
+
+      axios.post('/save/:id', {
+        school:savedCollege.school,
+        location: savedCollege.location,
+        cost: savedCollege.cost
+      })
+      .then(response => {
+        if(!response.data.errmsg){
+          console.log("saving error")
+        } else {
+          console.log("College already saved")
+        }
+      })
+      .catch(error => {
+        console.log(error)
+      })
+    }
     
   render () {
     return (
@@ -201,8 +224,8 @@ class Colleges extends React.Component {
             <small>Cost (public): {result['latest.cost.avg_net_price.public']}</small>
             <small><a href={'http://' + result['school.school_url']} target='blank' class="text-white">{result['school.school_url']}</a></small>
             <button
-                onClick={() => this.handleSchoolSave(result.id)}
-                className="btn btn-primary ml-2">
+                onClick={this.handleSavingCollege}
+                className="btn btn-danger ml-2">
                 Save
              </button>
             </div>
