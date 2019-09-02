@@ -1,7 +1,7 @@
 import React, {Component} from "react";
 
 import { BrowserRouter as Router, Link, Route, Switch } from "react-router-dom";
-
+import axios from 'axios'
 class pageNav extends Component {
 
   constructor(){
@@ -9,6 +9,20 @@ class pageNav extends Component {
     this.state={
       loggedIn:false
     }
+  }
+
+  handleLogout = event => {
+    event.preventDefault();
+
+    axios.get('/users/logout')
+    .then(response => {
+      if(!response.data.errmsg){
+        console.log("Logging out");
+        this.setState({loggedIn: false})
+      } else {
+        console.log("no user to log out")
+      }
+    })
   }
 render() {
   return (
@@ -46,7 +60,7 @@ render() {
       </span>
       <span>
         {this.state.loggedIn ? (
-          <a className="nav-link" href="/logout">Logout</a>
+          <a className="nav-link" onClick={this.handleLogout} href="/logout">Logout</a>
         ):(
           <a className="nav-link" href="/login">Login</a>
         )}

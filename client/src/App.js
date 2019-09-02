@@ -21,7 +21,7 @@ class App extends Component {
   render (){
     return (
     <div>
-      <PageNav />
+      <PageNav state={this.state.loggedIn}/>
       <Router>
           <div className="App">
             <Switch>
