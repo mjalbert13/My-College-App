@@ -33,7 +33,9 @@ class Login extends Component {
         
         console.log(this.state.email)
         console.log(this.state.password)
-
+        if(this.state.loggedIn === true){
+            return console.log("Already logged in")
+        }else{ 
         axios.post('/users/login', {
             email: this.state.email,
             password: this.state.password
@@ -52,7 +54,7 @@ class Login extends Component {
         .catch(error => {
             console.log(error)
         })
-
+        }
         this.setState({
             email: "",
             password: "",
