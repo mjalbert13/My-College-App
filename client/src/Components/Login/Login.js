@@ -1,4 +1,5 @@
 import React, { Component}  from 'react';
+import {Redirect} from 'react-router-dom'
 import axios from 'axios'
 import "./login.css"
 class Login extends Component {
@@ -8,8 +9,8 @@ class Login extends Component {
         this.state = {
             email: "",
             password: "",
-            name: "",
-            loggedIn: false
+            redirectTo: null,
+            
         }
         this.handleFormSubmit = this.handleFormSubmit.bind(this);
         this.handleInputChange= this.handleInputChange.bind(this);
@@ -33,16 +34,23 @@ class Login extends Component {
         
         console.log(this.state.email)
         console.log(this.state.password)
-
+        if(this.state.loggedIn === true){
+            return console.log("Already logged in")
+        }else{ 
         axios.post('/users/login', {
             email: this.state.email,
             password: this.state.password
         })
         .then(response => {
-            if(!response.data.errmsg){
-                
+            if(response.status === 200){
                 console.log("Logged in!")
-                this.setState({loggedIn: true})
+                this.props.updateUser({
+                    loggedIn: true, 
+                    name: response.data.firstName
+                })
+                this.setState({
+                    redirectTo: "/"
+                })
                 console.log("Logged in "+this.state.loggedIn)
                 
             } else {
@@ -52,7 +60,7 @@ class Login extends Component {
         .catch(error => {
             console.log(error)
         })
-
+        }
         this.setState({
             email: "",
             password: "",
@@ -62,12 +70,15 @@ class Login extends Component {
     }
 
     render() {
+        if(this.state.redirectTo){
+            return <Redirect to={{pathname: this.state.redirectTo}}/>
+        } else{
         return (
             <div className="container">
                 <div className="col-md-6 m-auto">
                     <div className="card card-body">
                         <h1>
-                        <i class="fas fa-sign-in-alt"></i> Login
+                        <i className="fas fa-sign-in-alt"></i> Login
                         </h1>
                         <form>
                             <div className="form-group">
@@ -81,7 +92,7 @@ class Login extends Component {
                                 onChange={this.handleInputChange}
                                 />
                             </div>
-                            <div>
+                            <div className="form-group">
                                 <label for="password">Password</label>
                                 <input
                                 className="form-control"
@@ -102,6 +113,7 @@ class Login extends Component {
                 </div>
             </div>
         )
+    }
     }
 }
 
