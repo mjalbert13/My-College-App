@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import{Redirect} from 'react-router-dom'
 import axios from 'axios'
 import '../Register/register.css'
 class registerForm extends Component {
@@ -11,7 +12,8 @@ class registerForm extends Component {
         lastName: "",
         password: "",
         confirmPassword: "",
-        email: ""
+        email: "",
+        redirectTo: null
       };
       this.handleFormSubmit = this.handleFormSubmit.bind(this)
       this.handleInputChange = this.handleInputChange.bind(this)
@@ -69,7 +71,9 @@ class registerForm extends Component {
   };
 
   render() {
-    
+    if(this.state.redirectTo){
+      return <Redirect to={{pathname: this.state.redirectTo}}/>
+    }
     return (
       <div className="container">
         <div className="col-md-6 m-auto">

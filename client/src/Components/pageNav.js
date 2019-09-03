@@ -1,16 +1,41 @@
 import React, {Component} from "react";
-
-import { BrowserRouter as Router, Link, Route, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Redirect } from "react-router-dom";
+import Logout from './Logout/Logout';
+import Axios from "axios";
 
 class pageNav extends Component {
 
   constructor(){
     super()
-    this.state={
-      loggedIn:false
+    this.state ={
+      redirectTo: null
     }
+    this.logout =this.logout.bind(this);
   }
+
+  logout(event){
+    event.preventDefault()
+    console.log('logging user out');
+    Axios.post("/users/logout").then(response => {
+      console.log(response.data)
+      if(response.status === 200) {
+        this.props.updateUser({
+          loggedIn: false,
+          name: null
+        })
+        this.setState({
+          redirectTo: "/"
+        })
+      }
+    }).catch(error => {
+      console.log("Logout error " +error)
+    })
+  }
+
 render() {
+  const loggedIn = this.props.loggedIn
+  console.log("Are you logged in? "+loggedIn)
+ 
   return (
   <Router>
     <nav className="navbar navbar-expand-lg navbar-light bg-light">
@@ -41,24 +66,29 @@ render() {
           
         </li>
       </ul>
-      <span class="navbar-text">
+      <span className="navbar-text">
         <a className="nav-link" href="/register">Sign up  </a>
       </span>
-      <span>
-        {this.state.loggedIn ? (
-          <a className="nav-link" href="/logout">Logout</a>
+     
+    
+        {loggedIn ? (
+          <span className="nvabar-text">
+          <a className="nav-link" onClick={this.logout} href="/">Logout</a>
+          </span>
         ):(
-          <a className="nav-link" href="/login">Login</a>
+        <span className="nvabar-text">
+         <a className= "nav-link" href="/login">Login</a>
+        </span>
         )}
-      </span>
+        
       </div>
     </nav>
 
-     
     </Router>
+    
    
  );
-
+  
 }
 }
 export default pageNav;
