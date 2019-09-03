@@ -9,6 +9,7 @@ class pageNav extends Component {
     this.state={
       loggedIn:false
     }
+    console.log(this.props)
   }
 
 render() {
@@ -42,11 +43,15 @@ render() {
           
         </li>
       </ul>
-      <span class="navbar-text">
+      <span className="navbar-text">
         <a className="nav-link" href="/register">Sign up  </a>
       </span>
       <span>
+        <Logout />
+      </span>
+      <span className="nvabar-text">
         {this.state.loggedIn ? (
+          
           <a className="nav-link" onClick={this.handleLogout} href="/">Logout</a>
         ):(
          <a className= "nav-link" href="/login">login</a>

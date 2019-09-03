@@ -51,17 +51,11 @@ router.post('/login', function (req, res, next) {
         var userInfo = {
             name: req.user.firstName
         };
-        res.send(userInfo);
+        res.json(userInfo);
     }
 );
 
-// router.post('/login', (req, res, next) => {
-//     passport.authenticate('local',{
-//         successRedirect: '/search',
-//         failureRedirect: '/login',
-//         failureMessage: "Login unsuccessful"
-//     })(req, res, next)
-// })
+
 
 router.get('/', (req, res, next) => {
     console.log('===== user!!======')
@@ -80,14 +74,6 @@ router.get('/logout', function(req, res){
     res.status(200)
 })
 
-// router.get('/logout', (req, res) => {
-//     if (req.user) {
-//         req.logout()
-//         res.send({ msg: 'logging out' })
-//     } else {
-//         res.send({ msg: 'no user to log out' })
-//     }
-// })
 
 passport.use(localStrategy)
 module.exports = router

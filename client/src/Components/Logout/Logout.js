@@ -15,10 +15,11 @@ class Logout extends Component {
 
         Axios.get('/users/logout')
         .then(response => {
-            if(!response.data.errmsg) {
+            if(this.state.loggedIn === true) {
                 console.log("User logged out success!")
+                this.setState({loggedIn: false})
             } else {
-                console.log("No user to log out")
+                return console.log("No user to log out")
             }
         })
     }

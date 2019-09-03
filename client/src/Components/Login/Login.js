@@ -44,7 +44,11 @@ class Login extends Component {
             if(!response.data.errmsg){
                 
                 console.log("Logged in!")
-                this.setState({loggedIn: true})
+                this.setState({
+                    loggedIn: true, 
+                    name: response.data.firstName
+                })
+
                 console.log("Logged in "+this.state.loggedIn)
                 
             } else {
@@ -83,7 +87,7 @@ class Login extends Component {
                                 onChange={this.handleInputChange}
                                 />
                             </div>
-                            <div>
+                            <div className="form-group">
                                 <label for="password">Password</label>
                                 <input
                                 className="form-control"
