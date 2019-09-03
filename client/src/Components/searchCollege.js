@@ -26,4 +26,4 @@ function searchCollgeName(props) {
     );
   }
 
-  function searchCollegeName;
+export default searchCollgeName;

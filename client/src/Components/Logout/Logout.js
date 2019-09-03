@@ -13,7 +13,7 @@ class Logout extends Component {
     handleLogout = event => {
         event.preventDefault();
 
-        Axios.get('/users/logout')
+        Axios.post('/users/logout')
         .then(response => {
             if(this.state.loggedIn === true) {
                 console.log("User logged out success!")

@@ -51,7 +51,7 @@ router.post('/login', function (req, res, next) {
         var userInfo = {
             name: req.user.firstName
         };
-        res.json(userInfo);
+        res.send(userInfo);
     }
 );
 
@@ -61,13 +61,15 @@ router.get('/', (req, res, next) => {
     console.log('===== user!!======')
     console.log(req.user)
     if (req.user) {
+        console.log("we have a user!")
         res.json({ user: req.user })
     } else {
+        console.log("No user yet")
         res.json({ user: null })
     }
 })
 
-router.get('/logout', function(req, res){
+router.post('/logout', function(req, res){
     req.logOut()
     console.log("Logged out")
     res.send({msg: "user logged out"})

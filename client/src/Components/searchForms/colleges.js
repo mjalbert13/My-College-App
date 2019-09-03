@@ -69,7 +69,7 @@ class Colleges extends React.Component {
               id="searchedZip"
             />
             <br></br>
-            <div class="form-group">
+            <div className="form-group">
                 <label for="searchTuition">Average cost of Tuition</label>
                 <select className="form-control" id="searchOptions">
                     <option>0 - 10,000</option>
@@ -97,13 +97,13 @@ class Colleges extends React.Component {
           </div>
         </form>
 
-        <ul class="list-group">
+        <ul className="list-group">
         <h3>Results:</h3>
         {this.state.result.map((result)=>
         <li className="list-group-item" key={result.id}>
-        <a href="#" class="list-group-item list-group-item-action active">
-            <div class="d-flex w-100 justify-content-between">
-            <h5 class="mb-1">Name: {result['school.name']}</h5>
+        <a href="#" className="list-group-item list-group-item-action active">
+            <div className="d-flex w-100 justify-content-between">
+            <h5 className="mb-1">Name: {result['school.name']}</h5>
             <small>State: {result['school.state']}</small>
             <small>Student body size: {result['latest.student.size']}</small>
             <small>Cost (private): {result['latest.cost.avg_net_price.private']}</small>
