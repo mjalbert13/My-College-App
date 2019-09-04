@@ -30,7 +30,7 @@ body{
 
 .ivy {
   background-image: url(../src/images/IvyClipart2.png);
-  background-repeat: no-repeat;
+  background-repeat: repeat-y;
   width: 100vw;
   border-image-repeat: repeat
 }
