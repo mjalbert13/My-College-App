@@ -3,10 +3,10 @@ import React, { Component } from "react";
 import "./home.css";
 import axios from 'axios'
 
-import "../../Components/searchForms/register";
 
 
-import registerForm from "../../Components/searchForms/register";
+
+
 
 class Home extends Component {
     constructor() {
@@ -83,7 +83,7 @@ class Home extends Component {
                     </div>
                 </div>
                 <br></br>
-                <registerForm />
+                
             </div>
         );
       }
