@@ -52,8 +52,8 @@ class App extends Component {
   
   render (){
     return (
-    <div>
-      <PageNav updateUser={this.updateUser} loggedIn={this.state.loggedIn}/>
+    <div className="ivy">
+      <PageNav updateUser={this.updateUser} name={this.state.name} loggedIn={this.state.loggedIn}/>
       <Router>
           <div className="App">
             <Switch>
