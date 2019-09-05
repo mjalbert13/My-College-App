@@ -3,6 +3,7 @@ import API from "../../utils/Api";
 import APIZip from "../../utils/ApiByZip";
 import APICostPublic from "../../utils/ApiByCostPublic";
 import APICostPrivate from "../../utils/ApiByCostPrivate";
+import axios from 'axios'
 
 class Colleges extends React.Component {
 
@@ -105,6 +106,26 @@ class Colleges extends React.Component {
         }).then(()=> this.getColleges());
     };  
     
+    handleSaveCollege = (id, event) => {
+      event.preventDefault();
+      const saveCollege = this.state.colleges.find(college => college.id === id);
+
+      axios.post('/save/', {
+        school: saveCollege.school,
+        location: saveCollege.location,
+        cost: saveCollege.cost
+      })
+      .then(response => {
+        if(!response.data.errmsg){
+          console.log("Save college to db")
+        }else{
+          console.log("College allready saved")
+        }
+      })
+      .catch( error =>{
+        console.log(error)
+      })
+    }
     
   render () {
     return (

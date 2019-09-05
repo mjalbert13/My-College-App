@@ -3,7 +3,7 @@ const router = express.Router();
 const sesion = require('express-session');
 const College = require('../database/models/colleges');
 
-router.post('/save/:id', (req, res) => {
+router.post('/:id', (req, res) => {
     console.log("save college")
 
     const{collegeName, location, cost}= req.body;
