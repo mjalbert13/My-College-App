@@ -11,8 +11,7 @@ const MongoStore = require('connect-mongo') (session)
 const passport = require('passport')
 //const user = require('./client/passport/database/models/users');
 const bodyParser = require('body-parser')
-const userRoutes = require('./passport/routes/userRoutes')
-const collegeRoutes = require('./server/routes/collegeRoutes')
+const routes = require('./backend/routes/userRoutes')
 mongoose.connect("mongodb://localhost/mycollegeapp", {useNewUrlParser: true});
 
 // Define middleware here
@@ -29,7 +28,7 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 
-require('./passport/config/passport')(passport);
+require('./backend/config/passportConfig')(passport);
 
 app.use(bodyParser.json())
 

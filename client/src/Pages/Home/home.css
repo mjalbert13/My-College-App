@@ -1,10 +1,7 @@
-.App {
-    background-image: url(../../images/IvyClipart2.png);
+.container {
+    /* background-image: url(../../images/IvyClipart2.png);
     background-repeat: no-repeat;
-    width: 100vw;
-    z-index: 1;
-    position: relative;
-    min-height: 100vh;
+    width: 100vw; */
   }
 
 .form {
@@ -19,5 +16,16 @@
 
 .jumbotron {
     padding: 15px;
-    background: rgba(0, 0, 0, 0.0);
+}
+
+#hero {
+    background:silver;
+    align-content: center; 
+}
+
+img {
+    max-width: 500px;
+    height: auto;
+    border-radius: 25px;
+    align-content: center;
 }
