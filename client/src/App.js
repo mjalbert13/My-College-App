@@ -1,11 +1,11 @@
 import React, { Component } from "react";
 import "./App.css";
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import FaqPage from './Pages/FAQ/Faq';
-import Search from "./Pages/Search/Search";
+import FaqPage from './pages/FAQ/Faq';
+import Search from "./pages/Search/Search";
 import Register from './Components/Register/register';
-import Home from "./Pages/Home/Home";
-import Saved from "./Pages/Saved/Saved";
+import Home from "./pages/Home/Home";
+import Saved from "./pages/Saved/Saved";
 import Login from "./Components/Login/Login"
 import PageNav from './Components/pageNav';
 import axios from 'axios'
@@ -32,16 +32,16 @@ class App extends Component {
 
   getUser() {
     axios.get("/users/").then(response => {
-      console.log("getting user");
-      console.log(response.data);
+      // console.log("getting user");
+      // console.log(response.data);
       if(response.data.user){
-        console.log("there is already a user session saved")
+        // console.log("there is already a user session saved")
         this.setState({
           loggedIn: true,
           name: response.data.user.firstName
         })
       }else {
-        console.log('no user yet')
+        // console.log('no user yet')
         this.setState({
           loggedIn: false,
           name: null

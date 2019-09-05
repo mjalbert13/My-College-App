@@ -64,7 +64,13 @@ class Home extends Component {
     render() {
         return (
             <div className="container">
-                
+                <div className="row">
+                    <div className="col">
+                        <div className="vineImage">
+
+                        </div>
+                    </div>
+                </div>
                 <div className="row">
                     <div className="col">
                         <div className="jumbotron">
