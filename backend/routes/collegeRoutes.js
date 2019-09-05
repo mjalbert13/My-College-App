@@ -1,6 +1,5 @@
 const express = require('express');
 const router = express.Router();
-const sesion = require('express-session');
 const College = require('../database/models/colleges');
 
 router.post('/:id', (req, res) => {
@@ -45,7 +44,7 @@ router.get('/saved', (req, res) => {
 router.delete("/saved/:id", (req,res) => {
     College.remove({_id: req.params.id}, (err, college) => {
         if(err) return err;
-        res.status(200).send();
+        res.status(200).send(college);
     })
 })
 
