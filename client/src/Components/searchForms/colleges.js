@@ -205,7 +205,7 @@ class Colleges extends React.Component {
             <small>Cost (public): {result['latest.cost.avg_net_price.public']}</small>
             <small><a href={'http://' + result['school.school_url']} target='blank' class="text-white">{result['school.school_url']}</a></small>
             <button
-                onClick={() => this.handleSchoolSave(result.id)}
+                onClick={() => this.handleCollegeSave(result.id)}
                 className="btn btn-primary ml-2">
                 Save
              </button>
