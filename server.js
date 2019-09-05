@@ -11,7 +11,8 @@ const MongoStore = require('connect-mongo') (session)
 const passport = require('passport')
 //const user = require('./client/passport/database/models/users');
 const bodyParser = require('body-parser')
-const routes = require('./passport/routes/userRoutes')
+const userRoutes = require('./passport/routes/userRoutes')
+const collegeRoutes = require('./server/routes/collegeRoutes')
 mongoose.connect("mongodb://localhost/mycollegeapp", {useNewUrlParser: true});
 
 // Define middleware here
@@ -38,7 +39,11 @@ if (process.env.NODE_ENV === "production") {
 }
 
 // Define API routes here
-app.use('/users', routes);
+app.use('/users', userRoutes);
+app.use('/save', collegeRoutes);
+// app.use('/saved', routes);
+// app.use('/saved:id', routes);
+// app.use('/save:id', routes);
 
 // Send every other request to the React app
 // Define any API routes before this runs

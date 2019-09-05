@@ -95,14 +95,21 @@ class Colleges extends React.Component {
         
       };
 
+
       handleCollegeSave = id => {
-        const collegeName = this.state.colleges.find(college => college.id === id);
+        console.log(this.state.result);
+        console.log("starting to save!");
+        const collegeName = this.state.result.find(college => college.id === id);
+        console.log(collegeName);
+        console.log(collegeName.id);
 
         API.saveCollege({
-          school: collegeName.school,
-          location: collegeName.location,
-          cost: collegeName.cost,
-        }).then(()=> this.getColleges());
+          id: collegeName.id,
+          school: collegeName['school.name'],
+          location: collegeName['school.state'],
+          costPrivate: collegeName['latest.cost.avg_net_price.private'],
+          costPublic: collegeName['latest.cost.avg_net_price.public']
+        }).then(API.getColleges());
     };  
     
     
@@ -210,7 +217,7 @@ class Colleges extends React.Component {
                 Save
              </button>
             </div>
-        </p>
+        </a>
         </li>
         )}
         </ul>

@@ -5,7 +5,7 @@ import FaqPage from './pages/FAQ/Faq';
 import Search from "./pages/Search/Search";
 import Register from './Components/searchForms/register';
 import Home from "./pages/Home/Home";
-// import Saved from "./pages/Saved/Saved";
+import Saved from "./pages/Saved/Saved";
 import Login from "./Components/Login/Login"
 import PageNav from './Components/pageNav';
 import axios from 'axios'
@@ -32,16 +32,16 @@ class App extends Component {
 
   getUser() {
     axios.get("/users/").then(response => {
-      console.log("getting user");
-      console.log(response.data);
+      // console.log("getting user");
+      // console.log(response.data);
       if(response.data.user){
-        console.log("there is already a user session saved")
+        // console.log("there is already a user session saved")
         this.setState({
           loggedIn: true,
           name: response.data.user.firstName
         })
       }else {
-        console.log('no user yet')
+        // console.log('no user yet')
         this.setState({
           loggedIn: false,
           name: null
@@ -59,7 +59,7 @@ class App extends Component {
             <Switch>
               <Route exact path='/' component={Home}/>
               <Route exact path='/search' component={Search}/>
-              {/* <Route exact path='/saved' component={Saved}/> */}
+              <Route exact path='/saved' component={Saved}/>
               <Route exact path='/faq' component={FaqPage}/>
               <Route exact path='/register' component={Register}/>
               <Route exact path="/login" render={() => <Login updateUser={this.updateUser}/>}/>
