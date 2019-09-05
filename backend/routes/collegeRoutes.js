@@ -8,8 +8,8 @@ router.post('/:id', (req, res) => {
     console.log(req.body, "fixing");
     console.log(req.params, 'ID')
 
-    const{collegeName, location, costPrivate, costPublic }= req.body;
-    College.findOne({collegeName: collegeName}, (err, college) => {
+    const{school, location, costPrivate, costPublic }= req.body;
+    College.findOne({collegeName: school}, (err, college) => {
         if(err) {
             console.log(err)
         } else if (college) {
@@ -20,7 +20,7 @@ router.post('/:id', (req, res) => {
         else {
             console.log("++++++++ adding college")
             const newCollege = new College({
-                collegeName,
+                collegeName: school,
                 location,
                 costPrivate,
                 costPublic
