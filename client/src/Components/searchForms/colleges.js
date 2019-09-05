@@ -210,7 +210,7 @@ class Colleges extends React.Component {
                 Save
              </button>
             </div>
-        </p>
+        </a>
         </li>
         )}
         </ul>

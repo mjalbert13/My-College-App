@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import "./App.css";
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import FaqPage from './pages/FAQ/Faq';
-import Search from "./pages/Search/Search";
-import Register from './Components/searchForms/register';
+import FaqPage from './Pages/FAQ/Faq';
+import Search from "./Pages/Search/Search";
+import Register from './Components/Register/register';
 import Home from "./Pages/Home/Home";
 import Saved from "./Pages/Saved/Saved";
 import Login from "./Components/Login/Login"
@@ -52,8 +52,8 @@ class App extends Component {
   
   render (){
     return (
-    <div>
-      <PageNav updateUser={this.updateUser} loggedIn={this.state.loggedIn}/>
+    <div className="ivy">
+      <PageNav updateUser={this.updateUser} name={this.state.name} loggedIn={this.state.loggedIn}/>
       <Router>
           <div className="App">
             <Switch>

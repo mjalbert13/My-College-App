@@ -1,6 +1,11 @@
-const passport = require('passport');
-const LocalStrategey = require('./localStrategy');
-const User = require('../database/models/user');
+var passport = require('passport'),
+    LocalStrategey = require('passport-local').Strategy;
+
+
+const User = require('../database/models/users');
+
+
+// const user = {email: "m@j.com", password:"123456"}
 
 passport.serializeUser((user, done =>{
     console.log("****Serialze called*****")
@@ -23,5 +28,5 @@ passport.deserializeUser((id, done) => {
     )
 })
 
-passport,use(LocalStrategey)
+passport.use(LocalStrategey)
 module.exports =passport

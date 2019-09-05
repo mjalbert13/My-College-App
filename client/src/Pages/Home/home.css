@@ -1,7 +1,7 @@
 .container {
-    background-image: url(../../images/IvyClipart2.png);
+    /* background-image: url(../../images/IvyClipart2.png);
     background-repeat: no-repeat;
-    width: 100vw;
+    width: 100vw; */
   }
 
 .form {
@@ -16,4 +16,16 @@
 
 .jumbotron {
     padding: 15px;
+}
+
+#hero {
+    background:silver;
+    align-content: center; 
+}
+
+img {
+    max-width: 500px;
+    height: auto;
+    border-radius: 25px;
+    align-content: center;
 }
