@@ -39,7 +39,7 @@ if (process.env.NODE_ENV === "production") {
 
 // Define API routes here
 app.use('/users', userRoutes);
-app.use('/save', collegeRoutes);
+// app.use('/save', collegeRoutes);
 
 // Send every other request to the React app
 // Define any API routes before this runs
