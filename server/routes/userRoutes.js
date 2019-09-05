@@ -1,6 +1,6 @@
 const express = require('express')
 const router = express.Router()
-const User = require('../../passport/database/models/users')
+const User = require('../database/models/users')
 var passport = require('passport'),
     localStrategy = require('passport-local').Strategy;
 // require('../config/passport') (passport)

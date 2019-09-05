@@ -151,7 +151,7 @@ class Colleges extends React.Component {
                     <option>30,000 - 40,000</option>
                     <option>40,000+</option>
                 </select>
-            </div> */}
+            </div>
             <label htmlFor="cost">Search by Tuition Cost:</label>
             <br></br>
             <label>

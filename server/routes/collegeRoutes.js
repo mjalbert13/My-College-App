@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const sesion = require('express-session');
-const College = require('../../client/passport/database/models/colleges');
+const College = require('../database/models/colleges');
 
 router.post('/:id', (req, res) => {
     console.log("save college route")
