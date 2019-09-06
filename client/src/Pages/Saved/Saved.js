@@ -1,5 +1,5 @@
 import React, {Component} from "react";
-
+import API from "../../utils/Api";
 
 class Saved extends Component {
    
@@ -9,8 +9,6 @@ class Saved extends Component {
       schools: [],
       message: "Check out your saved schools and add notes"
     };
-
-
   }
 
   render(){
