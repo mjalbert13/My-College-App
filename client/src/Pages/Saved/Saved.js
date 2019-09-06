@@ -1,5 +1,6 @@
 import React, {Component} from "react";
-import API from "../../utils/Api";
+import Axios from "axios";
+
 
 class Saved extends Component {
    
@@ -9,8 +10,26 @@ class Saved extends Component {
       schools: [],
       message: "Check out your saved schools and add notes"
     };
+    this.getCollege = this.getCollege.bind(this)
+    this.componentDidMount = this.componentDidMount.bind(this)
   }
 
+  componentDidMount() {
+    this.getCollege()
+  }
+
+  getCollege(){
+    Axios.get('/save/').then(response => {
+      if(response.data){
+        console.log(response.data)
+        this.setState({
+          schools:response.data
+        })
+      }else{
+        console.log('no colleges saved')
+      }
+    })
+  }
   render(){
       return (
       <div>
@@ -26,6 +45,26 @@ class Saved extends Component {
 
            <div className="col-sm">
 
+           {this.state.schools.map((result)=>
+        <li className="list-group-item" key={result.id}>
+
+        <a href="#" className="list-group-item list-group-item-action active">
+            <div className="d-flex w-100 justify-content-between">
+            <h5 className="mb-1">Name: {result.collegeName}</h5>
+            <small>State: {result.location}</small>
+
+            <small>Cost (private): {result.costPrivate}</small>
+            <small>Cost (public): {result.costPublic}</small>
+           
+            <button
+                onClick={() => this.handleCollegeSave(result.id)}
+                className="btn btn-primary ml-2">
+                Save
+             </button>
+            </div>
+        </a>
+        </li>
+        )}
         
           Notes:
           <div className="col-sm">
