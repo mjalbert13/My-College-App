@@ -53,6 +53,8 @@ class App extends Component {
   render (){
     return (
     <div className="ivy">
+    <div className="college">
+    
       <PageNav updateUser={this.updateUser} name={this.state.name} loggedIn={this.state.loggedIn}/>
       <Router>
           <div className="App">
@@ -67,6 +69,7 @@ class App extends Component {
           </div>
         </Router>
       </div>
+     </div> 
     );
   }
 }

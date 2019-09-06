@@ -40,7 +40,7 @@ render() {
  
   return (
   <Router>
-    <nav className="navbar navbar-expand-lg navbar-light bg-dark" id="nav">
+    <nav className="navbar navbar-expand-lg navbar-light bg-light" id="nav">
       {loggedIn ? (
         <a className="navbar-brand" href="/">{name}'s College App</a>
       ):(
