@@ -35,12 +35,13 @@ router.post('/:id', (req, res) => {
     })
 })
 
-router.get('/saved', (req, res) => {
+router.get('/', (req, res) => {
     College.find({}, (err, colleges) => {
         if(err) {
             console.log(err)
         }
         console.log("show all colleges")
+        res.json(colleges)
         res.status(200).send();
     })
 })
