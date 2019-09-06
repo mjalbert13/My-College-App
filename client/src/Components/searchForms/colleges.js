@@ -118,7 +118,7 @@ class Colleges extends React.Component {
     <div>
         <form>
           <div className="form-group">
-            <label htmlFor="search">Search by Name:</label>
+            <label htmlFor="search"><strong>Search by Name</strong></label>
             <input
               onChange={this.handleInputChange}
               value={this.state.college}
@@ -129,7 +129,7 @@ class Colleges extends React.Component {
               id="college"
             />
             <br></br>
-            <label htmlFor="zip">Search by Zip (20 mile range):</label>
+            <label htmlFor="zip"><strong>Search by Zip (20 mile range):</strong></label>
             <input
               onChange={this.handleInputChange}
               value={this.state.searchedZip}
@@ -143,7 +143,7 @@ class Colleges extends React.Component {
 
             <div className="form-group">
 
-                <label for="searchTuition">Average cost of Tuition</label>
+                <label for="searchTuition"><strong>Average cost of Tuition:</strong></label>
                 <select className="form-control" id="searchOptions">
                     <option>0 - 10,000</option>
                     <option>10,000 - 15,000</option>
@@ -152,25 +152,31 @@ class Colleges extends React.Component {
                     <option>40,000+</option>
                 </select>
             </div>
-            <label htmlFor="cost">Search by Tuition Cost:</label>
+            <label htmlFor="cost"><strong>Search by Tuition Cost:</strong></label>
             <br></br>
+              <div className="row">
+              <div className="col-sm-1">
             <label>
-                Public Institution 
+                <strong>Public Institution </strong> 
                 <input
                     name="public"
                     type="checkbox"
                     checked={this.state.publicChecked}
                     onChange={this.handlePublicCheckBox} />
-            </label>
+                    </label>
+                    </div>
             <br></br>
             <label>
-                Private Institution 
+              <div className="col-sm-1">
+               <strong>Private Institution </strong>  
                 <input
                     name="private"
                     type="checkbox"
                     checked={this.state.privateChecked}
                     onChange={this.handlePrivateCheckBox} />
+              </div>            
             </label>
+        </div>
             <input
               onChange={this.handleInputChange}
               value={this.state.costBegin}

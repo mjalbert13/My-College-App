@@ -4,10 +4,6 @@ import "./home.css";
 import axios from 'axios'
 
 
-
-
-
-
 class Home extends Component {
     constructor() {
         super()
@@ -83,9 +79,9 @@ class Home extends Component {
                 </div>
                 <div className="row">
                     <div className="col">
-                        <div className="card card-body" id="hero">
+                        {/* <div className="card card-body" id="hero">
                             <img src="https://giving.georgetown.edu/sites/default/files/styles/1600-750/public/promotion/images/20170927_UndergradStock-364.jpg?itok=b8Rr4T8V" alt="College students" />             
-                        </div>
+                        </div> */}
                     </div>
                 </div>
                 <br></br>
