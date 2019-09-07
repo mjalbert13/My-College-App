@@ -1,24 +1,28 @@
 import React, {Component} from 'react';
+<<<<<<< HEAD
 import Jumbotron from "../../Components/Jumbotron/jumbotron";
+=======
+// import Jumbotron from "../../Components/jumbotron/jumbotron";
+>>>>>>> origin
 import Colleges from "../../Components/searchForms/colleges";
-
+import "../Search/search.css";
 
 class Search extends Component  {
 
     render(){
         return (
           <div> 
-            <Jumbotron>
-              <h1 className="Text-center">
-              <strong>Find your college:</strong>
-              </h1>
-              <h2 className="text-center">Search your College using the criteria below
+          
+              <div className="Jumbotron">
+         <h2>Search your College using the criteria below
               to find your dream school</h2>
-            </Jumbotron>
-
-            <div className="container">              
+              </div>
+             
+            
+         <div className="card">              
               <Colleges/>
             </div>
+
           </div>
         );
     }
