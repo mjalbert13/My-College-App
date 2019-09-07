@@ -1,5 +1,6 @@
 import React, {Component} from "react";
 import Axios from "axios";
+import "./Saved.css";
 
 
 class Saved extends Component {
@@ -34,54 +35,48 @@ class Saved extends Component {
       return (
       <div>
         
-        <div className="card">
-          <h1>Checkout your saved Schools.</h1>
-          <h2>Add notes about your schools to keep track of your journey</h2>
+        <div className="row">
+          <div className="col-sm">
+            <div className="card">
+              <h1>Checkout your saved Schools.</h1>
+              <h2>Add notes about your schools to keep track of your journey</h2>
+            </div>
+          </div>
         </div>
 
         <div className="container">
-
           <div className="row">
-
-           <div className="col-sm">
-
-           {this.state.schools.map((result)=>
-        <li className="list-group-item" key={result.id}>
-
-        <a href="#" className="list-group-item list-group-item-action active">
-            <div className="d-flex w-100 justify-content-between">
-            <h5 className="mb-1">Name: {result.collegeName}</h5>
-            <small>State: {result.location}</small>
-
-            <small>Cost (private): {result.costPrivate}</small>
-            <small>Cost (public): {result.costPublic}</small>
-           
-            <button
-                onClick={() => this.handleCollegeSave(result.id)}
-                className="btn btn-primary ml-2">
-                Save
-             </button>
-            </div>
-        </a>
-        </li>
-        )}
-        
-          Notes:
-          <div className="col-sm">
-            <strong>School Name:</strong>
-          </div>
-          
-          <div className="col-sm">
-            <strong>State:</strong>
-          </div>
-
-          <div className="col-sm">
+           <div className="col-sm results">
+            {this.state.schools.map((result)=>
+            <li className="list-group-item" key={result.id}>
+              <a href="#" className="list-group-item list-group-item-action active">
+                <div className="d-flex w-100 justify-content-between">
+                  <h5 className="mb-1">Name: {result.collegeName}</h5>
+                  <small className="d-inline-flex p-2">State: {result.location}</small>
+                  <small className="d-inline-flex p-2">Cost (private): {result.costPrivate}</small>
+                  <small className="d-inline-flex p-2">Cost (public): {result.costPublic}</small>
+                  <button
+                      onClick={() => this.handleCollegeSave(result.id)}
+                      className="btn btn-primary ml-2">
+                      Create Note
+                  </button>
+                </div>
+              </a>
+            </li>
+            )}
             Notes:
+            <div className="col-sm">
+              <strong>School Name:</strong>
+            </div>
+            <div className="col-sm">
+              <strong>State:</strong>
+            </div>
+            <div className="col-sm">
+              Notes:
+            </div>
           </div>
-
         </div>
-     </div>
-  </div>
+      </div>
 
   </div>
       )

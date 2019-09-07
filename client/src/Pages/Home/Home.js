@@ -59,24 +59,18 @@ class Home extends Component {
     }
     render() {
         return (
+        <div>
+            <div className="row">
+                <div className="col">
+                    <div className="jumbotron">
+                        {/* <img src={column}></img> */}
+                        <h1 className="d-flex justify-content-center">My College App!</h1>
+                        <p className="lead d-flex justify-content-center">A full stack MERN application that lets users search for colleges and save their favorites as well as add notes</p>
+                        <hr className="my-4"></hr>
+                    </div>
+                </div>
+            </div>
             <div className="container">
-                <div className="row">
-                    <div className="col">
-                        <div className="vineImage">
-
-                        </div>
-                    </div>
-                </div>
-                <div className="row">
-                    <div className="col">
-                        <div className="jumbotron">
-                            {/* <img src={column}></img> */}
-                            <h1 className="d-flex justify-content-center">My College App!</h1>
-                            <p className="lead">A full stack MERN application that lets users search for colleges and save their favorites as well as add notes</p>
-                            <hr className="my-4"></hr>
-                        </div>
-                    </div>
-                </div>
                 <div className="row">
                     <div className="col">
                         {/* <div className="card card-body" id="hero">
@@ -85,8 +79,8 @@ class Home extends Component {
                     </div>
                 </div>
                 <br></br>
-                
-            </div>
+            </div>   
+        </div>
         );
       }
     }
