@@ -11,8 +11,8 @@ render(){
               <div className="container">
                 <div className="jumbotron jumbotron-fluid">
                     {/* <div className="container"> */}
-                        <h1 className="display-4">Need Help?</h1>
-                        <p className="lead">Here are some of the most asked questions:</p>
+                        <h1 className="display-4 d-flex justify-content-center">Need Help?</h1>
+                        <p className="lead d-flex justify-content-center">Here are some of the most asked questions:</p>
                     </div>
                     </div>
                 <div className="card" id="faq">
