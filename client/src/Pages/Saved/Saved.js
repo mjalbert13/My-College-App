@@ -60,53 +60,10 @@ class Saved extends Component {
                     Create Note
                   </button>
 
-<<<<<<< HEAD
-           <div className="col-sm">
-
-           {this.state.schools.map((result)=>
-        <li className="list-group-item" key={result.id}>
-
-        <a href="#" className="list-group-item list-group-item-action active">
-            <div className="d-flex w-100 justify-content-between">
-            <h5 className="mb-1">Name: {result.collegeName}</h5>
-            <small>State: {result.location}</small>
-
-            <small>Cost (private): {result.costPrivate}</small>
-            <small>Cost (public): {result.costPublic}</small>
-            
-            <button
-                onClick={() => console.log(`delete`)}
-                className="btn btn-primary ml-2">
-                Remove
-             </button>
-
-            <button
-                onClick={() => this.handleCollegeSave(result.id)}
-                className="btn btn-primary ml-2">
-                Save
-             </button>
-            </div>
-        </a>
-        </li>
-        )}
-        
-          Notes:
-          <div className="col-sm">
-            <strong>School Name:</strong>
-          </div>
-          
-          <div className="col-sm">
-            <strong>State:</strong>
-          </div>
-
-          <div className="col-sm">
-            Notes:
-=======
                 </div>
               </a>
             </li>
             )}
->>>>>>> origin
           </div>
         </div>
       </div>

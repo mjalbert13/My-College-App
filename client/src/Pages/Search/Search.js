@@ -1,9 +1,5 @@
 import React, {Component} from 'react';
-<<<<<<< HEAD
 import Jumbotron from "../../Components/Jumbotron/jumbotron";
-=======
-// import Jumbotron from "../../Components/jumbotron/jumbotron";
->>>>>>> origin
 import Colleges from "../../Components/searchForms/colleges";
 import "../Search/search.css";
 
