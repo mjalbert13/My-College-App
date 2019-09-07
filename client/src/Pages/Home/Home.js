@@ -59,28 +59,28 @@ class Home extends Component {
     }
     render() {
         return (
-            <div>
-        <div className="row">
-            <div className="col">
-                  <div className="container">
-                </div>
-                </div>
-                <div className="row">
-                    <div className="col">
+        <div>
+            <div className="row">
+                <div className="col">
+                    <div className="jumbotron">
+                        {/* <img src={column}></img> */}
+                        <h1 className="d-flex justify-content-center">My College App!</h1>
+                        <p className="lead d-flex justify-content-center">A full stack MERN application that lets users search for colleges and save their favorites as well as add notes</p>
+                        <hr className="my-4"></hr>
                     </div>
                 </div>
-                <div className="row">
-                    <div className="col">
-                    </div>
-                </div>
-                        <div className="jumbotron">
-                            <h1 className="d-flex justify-content-center">My College App!</h1>
-                            <p className="lead">A full stack MERN application that lets users search for colleges and save their favorites as well as add notes</p>
-                            <hr className="my-4"></hr>
-                        </div>
-                <br></br>
-        </div>
             </div>
+            <div className="container">
+                <div className="row">
+                    <div className="col">
+                        {/* <div className="card card-body" id="hero">
+                            <img src="https://giving.georgetown.edu/sites/default/files/styles/1600-750/public/promotion/images/20170927_UndergradStock-364.jpg?itok=b8Rr4T8V" alt="College students" />             
+                        </div> */}
+                    </div>
+                </div>
+                <br></br>
+            </div>   
+        </div>
         );
       }
     }

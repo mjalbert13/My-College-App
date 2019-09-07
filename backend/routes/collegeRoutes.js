@@ -41,8 +41,7 @@ router.get('/', (req, res) => {
             console.log(err)
         }
         console.log("show all colleges")
-        res.json(colleges)
-        res.status(200).send();
+        res.json(colleges).status(200).send();
     })
 })
 
