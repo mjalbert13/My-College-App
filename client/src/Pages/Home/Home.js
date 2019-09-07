@@ -59,14 +59,9 @@ class Home extends Component {
     }
     render() {
         return (
-            <div className="container">
-                <div className="row">
-                    <div className="col">
-                        <div className="vineImage">
+            <div>
 
-                        </div>
-                    </div>
-                </div>
+            <div className="container">
                 <div className="row">
                     <div className="col">
                         <div className="jumbotron">
@@ -87,6 +82,7 @@ class Home extends Component {
                 <br></br>
                 
             </div>
+                        </div>
         );
       }
     }

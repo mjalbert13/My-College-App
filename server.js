@@ -13,7 +13,12 @@ const passport = require('passport')
 const bodyParser = require('body-parser')
 const userRoutes = require('./backend/routes/userRoutes')
 const collegeRoutes = require('./backend/routes/collegeRoutes')
-mongoose.connect("mongodb://localhost/mycollegeapp", {useNewUrlParser: true});
+// mongoose.connect("mongodb://localhost/mycollegeapp", 
+mongoose.connect("mongodb://my_college_app:HigherEd1@ds133348.mlab.com:33348/heroku_4ntp5hwr", 
+  {
+    useNewUrlParser: true
+  }
+);
 
 // Define middleware here
 app.use(express.urlencoded({ extended: true }));
