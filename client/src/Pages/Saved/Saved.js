@@ -55,7 +55,13 @@ class Saved extends Component {
 
             <small>Cost (private): {result.costPrivate}</small>
             <small>Cost (public): {result.costPublic}</small>
-           
+            
+            <button
+                onClick={() => console.log(`delete`)}
+                className="btn btn-primary ml-2">
+                Remove
+             </button>
+
             <button
                 onClick={() => this.handleCollegeSave(result.id)}
                 className="btn btn-primary ml-2">

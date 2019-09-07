@@ -84,9 +84,9 @@ class Colleges extends React.Component {
           this.searchByCostPublic(this.state.costBegin, this.state.costEnd);
         } else if (this.state.privateChecked){
           this.searchByCostPrivate(this.state.costBegin, this.state.costEnd);
-        } else if (this.state.searchedZip != "") {
+        } else if (this.state.searchedZip !== "") {
           this.searchByZip(this.state.searchedZip);
-        } else if (this.state.college != "") {
+        } else if (this.state.college !== "") {
           this.searchColleges(this.state.college);
         }
         else {
@@ -110,6 +110,18 @@ class Colleges extends React.Component {
           costPrivate: collegeName['latest.cost.avg_net_price.private'],
           costPublic: collegeName['latest.cost.avg_net_price.public']
         }).then(API.getColleges());
+    };
+
+    handleCollegeDelete = id => {
+      console.log(this.state.result);
+      console.log("starting to delete!");
+      const collegeName = this.state.result.find(college => college.id === id);
+
+      API.deleteCollege({
+        id: collegeName.id,
+        costPrivate: collegeName['latest.cost.avg_net_price.private'],
+        costPublic: collegeName['latest.cost.avg_net_price.public']
+      }).then(API.getColleges());
     };  
     
     

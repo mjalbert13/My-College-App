@@ -14,14 +14,14 @@ export default {
     console.log("getting");
     return axios.get("/save");
   },
-  // getColleges: function(req,res) {
-  //   console.log("getting");
-  //   return axios.get("/saved", { id: req.params.id });
-  // },
 
   saveCollege: function(collegeName) {
     console.log("saving college step 2");
     return axios.post(`/save/${collegeName.id}`, collegeName);
+  },
+
+  deleteCollege: function(){
+    console.log(`delete college`)
   }
 
 };
