@@ -3,6 +3,7 @@ import API from "../../utils/Api";
 import APIZip from "../../utils/ApiByZip";
 import APICostPublic from "../../utils/ApiByCostPublic";
 import APICostPrivate from "../../utils/ApiByCostPrivate";
+import "../searchForms/colleges.css";
 
 class Colleges extends React.Component {
 
@@ -116,8 +117,8 @@ class Colleges extends React.Component {
   render () {
     return (
     <div>
-        <form>
-          <div className="form-group">
+
+        <div className="form-group">
             <label htmlFor="search"><strong>Search by Name</strong></label>
             <input
               onChange={this.handleInputChange}
@@ -129,6 +130,7 @@ class Colleges extends React.Component {
               id="college"
             />
             <br></br>
+          
             <label htmlFor="zip"><strong>Search by Zip (20 mile range):</strong></label>
             <input
               onChange={this.handleInputChange}
@@ -139,11 +141,10 @@ class Colleges extends React.Component {
               placeholder="Search for a College by Zip Code"
               id="searchedZip"
             />
-            <br></br>
+            
+      <br></br>
 
-            <div className="form-group">
-
-                <label for="searchTuition"><strong>Average cost of Tuition:</strong></label>
+             <label for="searchTuition"><strong>Average cost of Tuition:</strong></label>
                 <select className="form-control" id="searchOptions">
                     <option>0 - 10,000</option>
                     <option>10,000 - 15,000</option>
@@ -151,11 +152,11 @@ class Colleges extends React.Component {
                     <option>30,000 - 40,000</option>
                     <option>40,000+</option>
                 </select>
-            </div>
+            
             <label htmlFor="cost"><strong>Search by Tuition Cost:</strong></label>
             <br></br>
               <div className="row">
-              <div className="col-sm-1">
+              <div className="col-sm-6">
             <label>
                 <strong>Public Institution </strong> 
                 <input
@@ -167,7 +168,7 @@ class Colleges extends React.Component {
                     </div>
             <br></br>
             <label>
-              <div className="col-sm-1">
+              <div className="col-sm-6">
                <strong>Private Institution </strong>  
                 <input
                     name="private"
@@ -200,10 +201,8 @@ class Colleges extends React.Component {
              className="btn btn-primary mt-3">
               Search
             </button>
-          </div>
-        </form>
-
-        <ul className="list-group">
+         
+         <ul className="list-group">
         <h3>Results:</h3>
        {this.state.result.map((result)=>
         <li className="list-group-item" key={result.id}>
@@ -226,7 +225,8 @@ class Colleges extends React.Component {
         </a>
         </li>
         )}
-        </ul>
+      </ul>
+     </div>
     </div>
     )
   }
