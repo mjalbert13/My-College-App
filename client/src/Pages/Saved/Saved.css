@@ -11,3 +11,5 @@
     color: black;
     font-weight: bold;
 }
+
+.modal-backdrop.in { z-index: auto;}

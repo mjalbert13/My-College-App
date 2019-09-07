@@ -55,28 +55,38 @@ class Saved extends Component {
                   <small className="d-inline-flex p-2">State: {result.location}</small>
                   <small className="d-inline-flex p-2">Cost (private): {result.costPrivate}</small>
                   <small className="d-inline-flex p-2">Cost (public): {result.costPublic}</small>
-                  <button
-                      onClick={() => this.handleCollegeSave(result.id)}
-                      className="btn btn-primary ml-2">
-                      Create Note
+                  {/* <!-- Button trigger modal --> */}
+                  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                    Create Note
                   </button>
+
                 </div>
               </a>
             </li>
             )}
-            Notes:
-            <div className="col-sm">
-              <strong>School Name:</strong>
-            </div>
-            <div className="col-sm">
-              <strong>State:</strong>
-            </div>
-            <div className="col-sm">
-              Notes:
-            </div>
           </div>
         </div>
       </div>
+                  {/* <!-- Modal --> */}
+                  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="false">
+                    <div class="modal-dialog" role="document">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title" id="exampleModalLabel">Custom Note</h5>
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                        </div>
+                        <div class="modal-body">
+                          ...
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                          <button type="button" class="btn btn-primary">Save changes</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
 
   </div>
       )
