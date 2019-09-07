@@ -1,5 +1,6 @@
 import React, {Component} from "react";
 import Axios from "axios";
+import "../Saved/Saved.css";
 
 
 class Saved extends Component {
@@ -66,18 +67,7 @@ class Saved extends Component {
         </li>
         )}
         
-          Notes:
-          <div className="col-sm">
-            <strong>School Name:</strong>
-          </div>
           
-          <div className="col-sm">
-            <strong>State:</strong>
-          </div>
-
-          <div className="col-sm">
-            Notes:
-          </div>
 
         </div>
      </div>

@@ -8,7 +8,7 @@ class Search extends Component  {
     render(){
         return (
           <div> 
-            <Jumbotron>
+            <Jumbotron id="searchJ">
               <h1 className="Text-center">
               <strong>Find your college:</strong>
               </h1>
