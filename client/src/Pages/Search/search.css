@@ -1,3 +1,5 @@
-/* #searchJ {
-    padding: 10px;
-} */
+.Jumbotron {
+    background-color: lightblue;
+    padding: 35px;
+    margin-top: 50px;
+}
