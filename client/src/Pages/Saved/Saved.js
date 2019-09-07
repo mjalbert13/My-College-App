@@ -78,7 +78,14 @@ class Saved extends Component {
                           </button>
                         </div>
                         <div class="modal-body">
-                          ...
+                          <form>
+                            <div class="form-group">
+                              <div class="form-group">
+                                <label for="message-text" class="col-form-label">Note text:</label>
+                                <textarea class="form-control" id="message-text"></textarea>
+                              </div>
+                            </div>
+                          </form>
                         </div>
                         <div class="modal-footer">
                           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>

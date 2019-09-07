@@ -8,7 +8,7 @@ class FaqPage extends Component {
 render(){
       return (
           <div>
-              <div className="container">
+              <div className="container faqContainer">
                 <div className="jumbotron jumbotron-fluid">
                     {/* <div className="container"> */}
                         <h1 className="display-4 d-flex justify-content-center">Need Help?</h1>
