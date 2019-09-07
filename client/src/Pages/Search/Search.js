@@ -8,17 +8,13 @@ class Search extends Component  {
     render(){
         return (
           <div> 
-          
               <div className="Jumbotron">
-         <h2>Search your College using the criteria below
-              to find your dream school</h2>
+                <h2 className="d-flex justify-content-center">Search your College using the criteria below
+                to find your dream school</h2>
+              </div>           
+              <div className="card">              
+                  <Colleges/>
               </div>
-             
-            
-         <div className="card">              
-              <Colleges/>
-            </div>
-
           </div>
         );
     }

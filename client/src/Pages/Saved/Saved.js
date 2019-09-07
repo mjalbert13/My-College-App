@@ -38,8 +38,8 @@ class Saved extends Component {
         <div className="row">
           <div className="col-sm">
             <div className="card">
-              <h1>Checkout your saved Schools.</h1>
-              <h2>Add notes about your schools to keep track of your journey</h2>
+              <h1 className="d-flex justify-content-center">Check out your saved schools.</h1>
+              <h2 className="d-flex justify-content-center">Add notes about your schools to keep track of your journey</h2>
             </div>
           </div>
         </div>
@@ -78,7 +78,14 @@ class Saved extends Component {
                           </button>
                         </div>
                         <div class="modal-body">
-                          ...
+                          <form>
+                            <div class="form-group">
+                              <div class="form-group">
+                                <label for="message-text" class="col-form-label">Note text:</label>
+                                <textarea class="form-control" id="message-text"></textarea>
+                              </div>
+                            </div>
+                          </form>
                         </div>
                         <div class="modal-footer">
                           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>

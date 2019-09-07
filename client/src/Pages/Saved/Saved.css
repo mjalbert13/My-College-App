@@ -1,7 +1,3 @@
-.results {
-    margin-top: 150px;
-}
-
 .list-group-item, .list-group-item.active {
     background-color: lightblue;
     border: 10px;
