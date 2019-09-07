@@ -8,7 +8,9 @@ class pageNav extends Component {
   constructor(){
     super()
     this.state ={
-      redirectTo: null
+      redirectTo: null,
+      loggedIn: false,
+      name: null
     }
     this.logout =this.logout.bind(this);
   }
