@@ -17,7 +17,7 @@ export default {
 
   saveNote: function(collegeName) {
     console.log("saving note function");
-    return axios.put(`/save/${collegeName.id}`, collegeName);
+    return axios.post(`/save/${collegeName.id}`, collegeName);
   },
 
   saveCollege: function(collegeName) {

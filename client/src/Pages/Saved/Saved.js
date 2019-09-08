@@ -3,51 +3,54 @@ import Axios from "axios";
 import "./Saved.css";
 import API from "../../utils/Api";
 
-
 class Saved extends Component {
    
-    constructor(){
-    super()
-    this.state = {
-      schools: [],
-      note: "",
-      message: "Check out your saved schools and add notes"
-    };
-    this.getCollege = this.getCollege.bind(this)
-    this.componentDidMount = this.componentDidMount.bind(this)
-  }
-
-  componentDidMount() {
-    this.getCollege()
-  }
-
-  getCollege(){
-    Axios.get('/save/').then(response => {
-      if(response.data){
-        console.log(response.data)
-        this.setState({
-          schools:response.data
-        })
-      }else{
-        console.log('no colleges saved')
-      }
-    })
-  }
-
-  handleFormSubmit = event => {
-    event.preventDefault();
-    this.handleNoteSave(this.state.note);
+  constructor(){
+  super()
+  this.state = {
+    schools: [],
+    note: "",
+    message: "Check out your saved schools and add notes"
   };
+  this.getCollege = this.getCollege.bind(this)
+  this.componentDidMount = this.componentDidMount.bind(this)
+}
+componentDidMount() {
+  this.getCollege()
+}
+getCollege(){
+  Axios.get('/save/').then(response => {
+    if(response.data){
+      console.log(response.data)
+      this.setState({
+        schools:response.data
+      })
+    }else{
+      console.log('no colleges saved')
+    }
+  })
+}
+handleFormSubmit = event => {
+  event.preventDefault();
+  this.handleNoteSave(this.state.note);
+};
+handleNoteSave = collegeResultNote => {
+  API.saveNote({
+    id: collegeResultNote.id,
+    school: collegeResultNote['school.name'],
+    location: collegeResultNote['school.state'],
+    costPrivate: collegeResultNote['latest.cost.avg_net_price.private'],
+    costPublic: collegeResultNote['latest.cost.avg_net_price.public'],
+    note: collegeResultNote.note
+  }).then(API.getColleges(), console.log("note: " + collegeResultNote.note));
+};
 
-  handleNoteSave = collegeResultNote => {
-    API.saveNote({
-      id: collegeResultNote.id,
-      school: collegeResultNote['school.name'],
-      location: collegeResultNote['school.state'],
-      costPrivate: collegeResultNote['latest.cost.avg_net_price.private'],
-      costPublic: collegeResultNote['latest.cost.avg_net_price.public'],
-      note: collegeResultNote.note
-    }).then(API.getColleges(), console.log("note: " + collegeResultNote.note));
+  handleInputChange = event => {
+    const value = event.target.value;
+    const name = event.target.name;
+    this.setState({
+      [name]: value
+    });
   };
 
   // handleNoteSave = id => {
@@ -118,7 +121,15 @@ class Saved extends Component {
                             <div class="form-group">
                               <div class="form-group">
                                 <label for="message-text" class="col-form-label">Add a note for things like scholarship info!</label>
-                                <textarea class="form-control" id="message-text"></textarea>
+                                <input
+                                  onChange={this.handleInputChange}
+                                  value={this.state.note}
+                                  name="note"
+                                  type="text"
+                                  className="form-control"
+                                  placeholder="Create a Note"
+                                  id="note"
+                                />
                               </div>
                             </div>
                           </form>

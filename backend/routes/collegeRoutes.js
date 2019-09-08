@@ -8,7 +8,7 @@ router.post('/:id', (req, res) => {
     console.log(req.body, "fixing");
     console.log(req.params, 'ID')
 
-    const{school, location, costPrivate, costPublic }= req.body;
+    const{school, location, costPrivate, costPublic, date, isDeleted, note }= req.body;
     College.findOne({collegeName: school}, (err, college) => {
         if(err) {
             console.log(err)
@@ -23,7 +23,10 @@ router.post('/:id', (req, res) => {
                 collegeName: school,
                 location,
                 costPrivate,
-                costPublic
+                costPublic,
+                date,
+                isDeleted,
+                note
             })
             console.log(newCollege);
             newCollege.save((err, savedCollege) => {

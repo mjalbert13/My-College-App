@@ -41,8 +41,8 @@ if (process.env.NODE_ENV === "production") {
 
 // Define API routes here
 app.use('/users', userRoutes);
-app.use('/save', collegeRoutes);
-app.use('/notes', notesRoutes);
+app.use('/save', collegeRoutes, notesRoutes);
+// app.use('/notes', notesRoutes);
 // app.use('/saved:id', routes);
 // app.use('/save:id', routes);
 
