@@ -39,14 +39,16 @@ class Saved extends Component {
     this.handleNoteSave(this.state.note);
   };
 
-  handleNoteSave = note => {
-    API.saveNote(note)
-    .then(res =>
-      {
-        console.log("note:" + note);
-        this.setState({ note: note })})
-        .catch(err => console.log(err));
-    };
+  handleNoteSave = collegeResultNote => {
+    API.saveNote({
+      id: collegeResultNote.id,
+      school: collegeResultNote['school.name'],
+      location: collegeResultNote['school.state'],
+      costPrivate: collegeResultNote['latest.cost.avg_net_price.private'],
+      costPublic: collegeResultNote['latest.cost.avg_net_price.public'],
+      note: collegeResultNote.note
+    }).then(API.getColleges(), console.log("note: " + collegeResultNote.note));
+  };
 
   // handleNoteSave = id => {
   //   console.log("starting to save note");
