@@ -13,6 +13,7 @@ const passport = require('passport')
 const bodyParser = require('body-parser')
 const userRoutes = require('./backend/routes/userRoutes')
 const collegeRoutes = require('./backend/routes/collegeRoutes')
+const notesRoutes = require('./backend/routes/notesRoutes')
 mongoose.connect("mongodb://localhost/mycollegeapp", {useNewUrlParser: true});
 
 // Define middleware here
@@ -41,7 +42,7 @@ if (process.env.NODE_ENV === "production") {
 // Define API routes here
 app.use('/users', userRoutes);
 app.use('/save', collegeRoutes);
-// app.use('/saved', routes);
+app.use('/notes', notesRoutes);
 // app.use('/saved:id', routes);
 // app.use('/save:id', routes);
 

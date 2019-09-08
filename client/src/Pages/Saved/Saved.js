@@ -1,6 +1,7 @@
 import React, {Component} from "react";
 import Axios from "axios";
 import "./Saved.css";
+import API from "../../utils/Api";
 
 
 class Saved extends Component {
@@ -9,6 +10,7 @@ class Saved extends Component {
     super()
     this.state = {
       schools: [],
+      note: "",
       message: "Check out your saved schools and add notes"
     };
     this.getCollege = this.getCollege.bind(this)
@@ -31,6 +33,37 @@ class Saved extends Component {
       }
     })
   }
+
+  handleFormSubmit = event => {
+    event.preventDefault();
+    this.handleNoteSave(this.state.note);
+  };
+
+  handleNoteSave = note => {
+    API.saveNote(note)
+    .then(res =>
+      {
+        console.log("note:" + note);
+        this.setState({ note: note })})
+        .catch(err => console.log(err));
+    };
+
+  // handleNoteSave = id => {
+  //   console.log("starting to save note");
+  //   const collegeResultNote = this.state.schools.find(college => college.id === id);
+  //   console.log(collegeResultNote);
+  //   console.log(collegeResultNote.id);
+
+  //   API.saveNote({
+  //     id: collegeResultNote.id,
+  //     school: collegeResultNote['school.name'],
+  //     location: collegeResultNote['school.state'],
+  //     costPrivate: collegeResultNote['latest.cost.avg_net_price.private'],
+  //     costPublic: collegeResultNote['latest.cost.avg_net_price.public'],
+  //     note: collegeResultNote.note
+  //   }).then(API.getColleges(), console.log("note: " + collegeResultNote.note));
+  // };  
+  
   render(){
       return (
       <div>
@@ -55,6 +88,7 @@ class Saved extends Component {
                   <small className="d-inline-flex p-2">State: {result.location}</small>
                   <small className="d-inline-flex p-2">Cost (private): {result.costPrivate}</small>
                   <small className="d-inline-flex p-2">Cost (public): {result.costPublic}</small>
+                  <small className="d-inline-flex p-2">Note: {result.note}</small>
                   {/* <!-- Button trigger modal --> */}
                   <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
                     Create Note
@@ -81,7 +115,7 @@ class Saved extends Component {
                           <form>
                             <div class="form-group">
                               <div class="form-group">
-                                <label for="message-text" class="col-form-label">Note text:</label>
+                                <label for="message-text" class="col-form-label">Add a note for things like scholarship info!</label>
                                 <textarea class="form-control" id="message-text"></textarea>
                               </div>
                             </div>
@@ -89,7 +123,7 @@ class Saved extends Component {
                         </div>
                         <div class="modal-footer">
                           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                          <button type="button" class="btn btn-primary">Save changes</button>
+                          <button type="button" class="btn btn-primary saveNote" onClick={() => this.handleFormSubmit}>Save changes</button>
                         </div>
                       </div>
                     </div>

@@ -12,6 +12,7 @@ class Colleges extends React.Component {
         searchedZip: "",
         costBegin: "",
         costEnd: "",
+        note: "",
         publicChecked: false,
         privateChecked: false,
         result: []
@@ -109,7 +110,8 @@ class Colleges extends React.Component {
           school: collegeName['school.name'],
           location: collegeName['school.state'],
           costPrivate: collegeName['latest.cost.avg_net_price.private'],
-          costPublic: collegeName['latest.cost.avg_net_price.public']
+          costPublic: collegeName['latest.cost.avg_net_price.public'],
+          note: collegeName.note
         }).then(API.getColleges());
     };  
     
