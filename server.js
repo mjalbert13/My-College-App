@@ -23,7 +23,8 @@ app.use(morgan('dev'));
 app.use(session({
   secret: "College",
   resave: false,
-  saveUninitialized: false
+  saveUninitialized: false,
+  store: new MongoStore({url:"mongodb://localhost/mycollegeapp"})
 }));
 
 app.use(passport.initialize());
