@@ -29,6 +29,7 @@ class App extends Component {
 
   updateUser(userObject) {
     this.setState(userObject)
+    console.log("USER OBJ" + userObject)
   }
 
   getUser() {
@@ -63,7 +64,7 @@ class App extends Component {
             <Switch>
               <Route exact path='/' component={Home}/>
               <Route exact path='/search' component={()=> <Search userId={this.state.userId}/>}/>
-              <Route exact path='/saved' component={Saved}/>
+              <Route exact path='/saved' component={() =><Saved user={this.state.userId}/>}/>
               <Route exact path='/faq' component={FaqPage}/>
               <Route exact path='/register' component={Register}/>
               <Route exact path="/login" render={() => <Login updateUser={this.updateUser}/>}/>
