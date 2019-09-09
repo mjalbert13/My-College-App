@@ -14,7 +14,8 @@ class Colleges extends React.Component {
         costEnd: "",
         publicChecked: false,
         privateChecked: false,
-        result: []
+        result: [],
+        userId: this.props.userId
     }
 
     searchColleges = query => {
@@ -103,14 +104,17 @@ class Colleges extends React.Component {
         const collegeName = this.state.result.find(college => college.id === id);
         console.log(collegeName);
         console.log(collegeName.id);
-
+        console.log(this.state.userId)
+        const userCollege = this.state.userId
         API.saveCollege({
           id: collegeName.id,
           school: collegeName['school.name'],
           location: collegeName['school.state'],
           costPrivate: collegeName['latest.cost.avg_net_price.private'],
-          costPublic: collegeName['latest.cost.avg_net_price.public']
-        }).then(API.getColleges());
+          costPublic: collegeName['latest.cost.avg_net_price.public'],
+          userId: userCollege
+        })
+        .then(API.getColleges());
     };  
     
     

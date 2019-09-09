@@ -4,7 +4,9 @@ import Colleges from "../../Components/searchForms/colleges";
 import "../Search/search.css";
 
 class Search extends Component  {
-
+    state={
+      userId: this.props.userId
+    }
     render(){
         return (
           <div> 
@@ -13,7 +15,7 @@ class Search extends Component  {
                 to find your dream school</h2>
               </div>           
               <div className="card">              
-                  <Colleges/>
+                  <Colleges userId={this.props.userId}/>
               </div>
           </div>
         );

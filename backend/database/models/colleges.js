@@ -26,6 +26,10 @@ const CollegeSchema = new Schema({
     isDeleted: {
         type: Boolean,
         default: false
+    },
+    userId: {
+        type: String,
+        required: true
     }
 
 })

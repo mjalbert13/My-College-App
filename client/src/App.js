@@ -15,7 +15,8 @@ class App extends Component {
     super()
     this.state={
       loggedIn: false,
-      name: null
+      name: null,
+      userId: null
     }
     this.getUser = this.getUser.bind(this)
     this.componentDidMount = this.componentDidMount.bind(this)
@@ -28,6 +29,7 @@ class App extends Component {
 
   updateUser(userObject) {
     this.setState(userObject)
+    console.log("USER OBJ" + userObject)
   }
 
   getUser() {
@@ -38,7 +40,8 @@ class App extends Component {
         // console.log("there is already a user session saved")
         this.setState({
           loggedIn: true,
-          name: response.data.user.firstName
+          name: response.data.user.firstName,
+          userId: response.data.user._id
         })
       }else {
         // console.log('no user yet')
@@ -60,8 +63,8 @@ class App extends Component {
           <div className="App">
             <Switch>
               <Route exact path='/' component={Home}/>
-              <Route exact path='/search' component={Search}/>
-              <Route exact path='/saved' component={Saved}/>
+              <Route exact path='/search' component={()=> <Search userId={this.state.userId}/>}/>
+              <Route exact path='/saved' component={() =><Saved user={this.state.userId}/>}/>
               <Route exact path='/faq' component={FaqPage}/>
               <Route exact path='/register' component={Register}/>
               <Route exact path="/login" render={() => <Login updateUser={this.updateUser}/>}/>

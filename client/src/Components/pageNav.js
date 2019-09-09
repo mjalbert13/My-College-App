@@ -8,7 +8,9 @@ class pageNav extends Component {
   constructor(){
     super()
     this.state ={
-      redirectTo: null
+      redirectTo: null,
+      loggedIn: false,
+      name: null
     }
     this.logout =this.logout.bind(this);
   }
@@ -72,19 +74,27 @@ render() {
           
         </li>
       </ul>
-      <span className="navbar-text">
-        <a className="nav-link" href="/register">Sign up  </a>
-      </span>
-     
+        
+      {loggedIn ? (
+          <span></span>
+      ) : (
+        <span className="navbar-text">
+          <a className="nav-link" href="/register">Sign up  </a>
+        </span>
+      )
+      }
     
         {loggedIn ? (
           <span className="nvabar-text">
           <a className="nav-link" onClick={this.logout} href="/">Logout</a>
           </span>
         ):(
+  
+      
         <span className="nvabar-text">
          <a className= "nav-link" href="/login">Login</a>
         </span>
+      
         )}
         
       </div>

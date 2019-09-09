@@ -8,6 +8,7 @@ class Saved extends Component {
     constructor(){
     super()
     this.state = {
+      userIdhard: "5d5f273a93a2be0a8413a2d3",
       schools: [],
       message: "Check out your saved schools and add notes"
     };
@@ -16,10 +17,13 @@ class Saved extends Component {
   }
 
   componentDidMount() {
-    this.getCollege()
+    
+ 
   }
 
   getCollege(){
+    const user =this.state.userIdhard
+    console.log("USer ID saved pg : "+ user)
     Axios.get('/save/').then(response => {
       if(response.data){
         console.log(response.data)
@@ -43,6 +47,11 @@ class Saved extends Component {
             </div>
           </div>
         </div>
+        
+        {/* Click button to show my colleges */}
+        <button type="submit" className="btn btn-danger btn-block" onClick={this.getCollege}>
+          My Saved Colleges
+        </button>
 
         <div className="container">
           <div className="row">
