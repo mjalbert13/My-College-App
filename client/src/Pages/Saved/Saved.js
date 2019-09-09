@@ -37,11 +37,8 @@ handleFormSubmit = event => {
 handleNoteSave = collegeResultNote => {
   API.saveNote({
     id: collegeResultNote.id,
-    school: collegeResultNote['school.name'],
-    location: collegeResultNote['school.state'],
-    costPrivate: collegeResultNote['latest.cost.avg_net_price.private'],
-    costPublic: collegeResultNote['latest.cost.avg_net_price.public'],
-    note: collegeResultNote.note
+    notes: collegeResultNote.note,
+    date: collegeResultNote.date
   }).then(API.getColleges(), console.log("note: " + collegeResultNote.note));
 };
 
