@@ -20,23 +20,19 @@ class Saved extends Component {
     this.getUserColleges = this.getUserColleges.bind(this)
   }
 
-  componentDidMount() {
-    this.getUserColleges()
-  }
-
-  // componentWillReceiveProps(){
-  //   this.getUserColleges()
-  // }
-
-  // shouldComponentUpdate(){
-  //   this.getUserColleges()
-  // }
+  
   getCollege(){
-    const user =this.state.userIdhard;
-    const userPropId = this.state.userId
-    console.log("USer ID saved pg : "+ userPropId)
-    Axios.get('/save/').then(response => {
+    const userhard =this.state.userIdhard;
+    const userId = this.props.userId
+    console.log("USer ID saved pg : "+ userId)
+    Axios.get(`/save/`,{
+      params:{
+        user: userId
+      }
+    }).then(response => {
       if(response.data){
+
+        console.log("get college step 4")
         console.log(response.data)
         this.setState({
           schools:response.data
@@ -47,27 +43,17 @@ class Saved extends Component {
     })
   }
 
-  getUserColleges(){
-    const userKey = this.state.userId;
-    console.log("Step 1 User Key: "+userKey)
-    API.getColleges({
-      userId: userKey
-    })
-    .then( response => {
-      if(response.data){
-        console.log("got college ")
-        this.setState({
-          schools: response.data
-        })
-      }else{
-        console.log("No Colleges")
-      }
-    })
-   
+  
 
+  componentDidMount() {
+    this.setState({
+      userId:this.props.userId
+    })
   }
+
   render(){
     console.log(this.props)
+    console.log(this.state.userId)
       return (
       <div>
         

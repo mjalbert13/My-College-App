@@ -107,7 +107,7 @@ class Colleges extends Component {
         console.log(collegeName);
         console.log(collegeName.id);
         console.log(this.state.userId)
-        const userCollege = this.state.userId
+        const userCollege = this.props.userId
         API.saveCollege({
           id: collegeName.id,
           school: collegeName['school.name'],
@@ -121,6 +121,7 @@ class Colleges extends Component {
     
     
   render () {
+    console.log(this.props.userId)
     return (
     <div>
 
