@@ -10,9 +10,9 @@ export default {
     return axios.get(BASEURL + query + SEARCH + APIKEY);
   },
 
-  getColleges: function() {
-    console.log("getting");
-    return axios.get("/save");
+  getColleges: function(user) {
+    console.log(" setp 2 getting");
+    return axios.get("/save", user);
   },
   // getColleges: function(req,res) {
   //   console.log("getting");

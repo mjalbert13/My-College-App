@@ -1,29 +1,40 @@
 import React, {Component} from "react";
 import Axios from "axios";
-import "./Saved.css";
+import API from'../../utils/Api'
+import  "./Saved.css";
 
 
 class Saved extends Component {
    
-    constructor(){
-    super()
+    constructor(props){
+    super(props)
     this.state = {
       userIdhard: "5d5f273a93a2be0a8413a2d3",
+      userId: this.props.userId,
       schools: [],
       message: "Check out your saved schools and add notes"
     };
     this.getCollege = this.getCollege.bind(this)
     this.componentDidMount = this.componentDidMount.bind(this)
+    // this.shouldComponentUpdate= this.shouldComponentUpdate.bind(this)
+    this.getUserColleges = this.getUserColleges.bind(this)
   }
 
   componentDidMount() {
-    
- 
+    this.getUserColleges()
   }
 
+  // componentWillReceiveProps(){
+  //   this.getUserColleges()
+  // }
+
+  // shouldComponentUpdate(){
+  //   this.getUserColleges()
+  // }
   getCollege(){
-    const user =this.state.userIdhard
-    console.log("USer ID saved pg : "+ user)
+    const user =this.state.userIdhard;
+    const userPropId = this.state.userId
+    console.log("USer ID saved pg : "+ userPropId)
     Axios.get('/save/').then(response => {
       if(response.data){
         console.log(response.data)
@@ -35,7 +46,28 @@ class Saved extends Component {
       }
     })
   }
+
+  getUserColleges(){
+    const userKey = this.state.userId;
+    console.log("Step 1 User Key: "+userKey)
+    API.getColleges({
+      userId: userKey
+    })
+    .then( response => {
+      if(response.data){
+        console.log("got college ")
+        this.setState({
+          schools: response.data
+        })
+      }else{
+        console.log("No Colleges")
+      }
+    })
+   
+
+  }
   render(){
+    console.log(this.props)
       return (
       <div>
         

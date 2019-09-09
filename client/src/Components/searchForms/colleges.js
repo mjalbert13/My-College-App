@@ -1,13 +1,15 @@
-import React from "react";
+import React, {Component}from "react";
 import API from "../../utils/Api";
 import APIZip from "../../utils/ApiByZip";
 import APICostPublic from "../../utils/ApiByCostPublic";
 import APICostPrivate from "../../utils/ApiByCostPrivate";
 import "../searchForms/colleges.css";
 
-class Colleges extends React.Component {
+class Colleges extends Component {
 
-    state = {
+  constructor(props){
+    super(props)
+    this.state = {
         college: "",
         searchedZip: "",
         costBegin: "",
@@ -17,7 +19,7 @@ class Colleges extends React.Component {
         result: [],
         userId: this.props.userId
     }
-
+  }
     searchColleges = query => {
         API.search(query)
         .then(res =>

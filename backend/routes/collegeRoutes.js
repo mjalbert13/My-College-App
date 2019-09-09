@@ -38,10 +38,11 @@ router.post('/:id', (req, res) => {
 
 router.get('/', (req, res) => {
     //need to get userId from state and pass it as const user
-    // const{user}=req.body;
+    const{user}=req.body;
     // console.log("Getting colleges for user" + user)
     //Matts Hard coded user id
-    College.find({userId:"5d5f273a93a2be0a8413a2d3"}, (err, colleges) => {
+    console.log("set 3 get call")
+    College.find({userId:user}, (err, colleges) => {
         if(err) {
             console.log("Get college error"+err)
         }
