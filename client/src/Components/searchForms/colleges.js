@@ -17,8 +17,10 @@ class Colleges extends Component {
         publicChecked: false,
         privateChecked: false,
         result: [],
+
         userId: this.props.userId,
         loggedIn: false
+
     }
   }
     searchColleges = query => {
@@ -108,7 +110,9 @@ class Colleges extends Component {
         console.log(collegeName);
         console.log(collegeName.id);
         console.log(this.state.userId)
+
         const userCollege = this.props.userId
+
         API.saveCollege({
           id: collegeName.id,
           school: collegeName['school.name'],
@@ -125,9 +129,9 @@ class Colleges extends Component {
     console.log(this.props.userId)
     return (
     <div>
-
+       
         <div className="form-group">
-            <label htmlFor="search"><strong>Search by Name</strong></label>
+            <label htmlFor="search" id="sHead"><strong>Search by Name</strong></label>
             <input
               onChange={this.handleInputChange}
               value={this.state.college}
@@ -138,8 +142,9 @@ class Colleges extends Component {
               id="college"
             />
             <br></br>
+            <br></br>
           
-            <label htmlFor="zip"><strong>Search by Zip (20 mile range):</strong></label>
+            <label htmlFor="zip" id="sHead"><strong>Search by Zip (20 mile range):</strong></label>
             <input
               onChange={this.handleInputChange}
               value={this.state.searchedZip}
@@ -151,20 +156,12 @@ class Colleges extends Component {
             />
             
       <br></br>
-
-             <label for="searchTuition"><strong>Average cost of Tuition:</strong></label>
-                <select className="form-control" id="searchOptions">
-                    <option>0 - 10,000</option>
-                    <option>10,000 - 15,000</option>
-                    <option>15,000 - 30,000</option>
-                    <option>30,000 - 40,000</option>
-                    <option>40,000+</option>
-                </select>
-            
-            <label htmlFor="cost"><strong>Search by Tuition Cost:</strong></label>
+      <br></br>
+      
+         <label htmlFor="cost" id="sHead"><strong>Search by Tuition Cost:</strong></label>
             <br></br>
               <div className="row">
-              <div className="col-sm-6">
+              <div className="col---6">
             <label>
                 <strong>Public Institution </strong> 
                 <input
@@ -175,8 +172,9 @@ class Colleges extends Component {
                     </label>
                     </div>
             <br></br>
+            <br></br>
             <label>
-              <div className="col-sm-6">
+              <div className="col---6">
                <strong>Private Institution </strong>  
                 <input
                     name="private"
@@ -204,14 +202,18 @@ class Colleges extends Component {
               placeholder="Tutition Cost Range - Ending"
               id="costEnd"
             />
+            <br></br>
             <button 
             onClick={this.handleFormSubmit}
              className="btn btn-primary mt-3">
               Search
             </button>
-         
+         <br></br>
+         <br></br>
+         </div>
+
+        <h3 className="justify-content-center">Results:</h3>
          <ul className="list-group">
-        <h3>Results:</h3>
        {this.state.result.map((result)=>
         <li className="list-group-item" key={result.id}>
 
@@ -240,7 +242,6 @@ class Colleges extends Component {
         )}
       </ul>
      </div>
-    </div>
     )
   }
 }

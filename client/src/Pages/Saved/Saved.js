@@ -10,8 +10,10 @@ class Saved extends Component {
     constructor(props){
     super(props)
     this.state = {
+
       loggedin:this.props.loggedin,
       userId: this.props.userId,
+
       schools: [],
       message: "Check out your saved schools and add notes"
     };
@@ -20,6 +22,7 @@ class Saved extends Component {
     // this.shouldComponentUpdate= this.shouldComponentUpdate.bind(this)
   
   }
+
 
   
   getCollege(){
@@ -31,6 +34,7 @@ class Saved extends Component {
         user: userId
       }
     }).then(response => {
+
       if(response.data){
 
         console.log("get college step 4")
@@ -70,6 +74,7 @@ class Saved extends Component {
         </div>
         
         {/* Click button to show my colleges */}
+
         
         
           <div className="col-md-6">
@@ -79,6 +84,7 @@ class Saved extends Component {
           </div>
        
       
+
         <div className="container">
           <div className="row">
            <div className="col-sm results">

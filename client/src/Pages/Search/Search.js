@@ -5,8 +5,10 @@ import "../Search/search.css";
 
 class Search extends Component  {
     state={
+
       userId: this.props.userId,
       loggedIn: false
+
     }
     render(){
         return (
@@ -16,7 +18,9 @@ class Search extends Component  {
                 to find your dream school</h2>
               </div>           
               <div className="card">              
+
                   <Colleges loggedIn={this.props.loggedIn} userId={this.props.userId}/>
+
               </div>
           </div>
         );
