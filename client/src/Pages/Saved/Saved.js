@@ -37,6 +37,7 @@ class Saved extends Component {
         this.setState({
           schools:response.data
         })
+        return
       }else{
         return console.log('no colleges saved')
       }
