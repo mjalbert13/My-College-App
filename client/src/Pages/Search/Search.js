@@ -5,7 +5,8 @@ import "../Search/search.css";
 
 class Search extends Component  {
     state={
-      userId: this.props.userId
+      userId: this.props.userId,
+      loggedIn: false
     }
     render(){
         return (
@@ -15,7 +16,7 @@ class Search extends Component  {
                 to find your dream school</h2>
               </div>           
               <div className="card">              
-                  <Colleges userId={this.props.userId}/>
+                  <Colleges loggedIn={this.props.loggedIn} userId={this.props.userId}/>
               </div>
           </div>
         );

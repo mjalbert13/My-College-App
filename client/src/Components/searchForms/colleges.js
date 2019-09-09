@@ -17,7 +17,8 @@ class Colleges extends Component {
         publicChecked: false,
         privateChecked: false,
         result: [],
-        userId: this.props.userId
+        userId: this.props.userId,
+        loggedIn: false
     }
   }
     searchColleges = query => {
@@ -223,11 +224,16 @@ class Colleges extends Component {
             <small>Cost (private): {result['latest.cost.avg_net_price.private']}</small>
             <small>Cost (public): {result['latest.cost.avg_net_price.public']}</small>
             <small><a href={'http://' + result['school.school_url']} target='blank' class="text-white">{result['school.school_url']}</a></small>
-            <button
-                onClick={() => this.handleCollegeSave(result.id)}
-                className="btn btn-primary ml-2">
-                Save
+           {this.props.loggedIn ? (
+              <button
+              onClick={() => this.handleCollegeSave(result.id)}
+              className="btn btn-primary ml-2">
+              Save
              </button>
+           ):(
+            <span></span>
+           )
+           }
             </div>
         </a>
         </li>

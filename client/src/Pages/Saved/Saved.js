@@ -1,5 +1,6 @@
 import React, {Component} from "react";
 import Axios from "axios";
+import {BrowserRouter as Router} from 'react-router-dom'
 import API from'../../utils/Api'
 import  "./Saved.css";
 
@@ -9,6 +10,7 @@ class Saved extends Component {
     constructor(props){
     super(props)
     this.state = {
+      loggedin:this.props.loggedin,
       userId: this.props.userId,
       schools: [],
       message: "Check out your saved schools and add notes"
@@ -68,10 +70,15 @@ class Saved extends Component {
         </div>
         
         {/* Click button to show my colleges */}
-        <button type="submit" className="btn btn-danger btn-block" onClick={this.getCollege}>
-          My Saved Colleges
-        </button>
-
+        
+        
+          <div className="col-md-6">
+          <button type="submit" className="btn btn-danger btn-block" onClick={this.getCollege}>
+            My Saved Colleges
+          </button>
+          </div>
+       
+      
         <div className="container">
           <div className="row">
            <div className="col-sm results">
