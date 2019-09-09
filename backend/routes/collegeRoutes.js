@@ -41,8 +41,7 @@ router.get('/', (req, res) => {
     let user = req.query.user;
     console.log(user)
     console.log("Getting colleges for user" + user)
-    //Matts Hard coded user id
-    // hard code userId value = "5d5f273a93a2be0a8413a2d3"
+  
     console.log("setp 3 get call")
     College.find({ userId: user }, (err, colleges) => {
         if(err) {

@@ -9,7 +9,6 @@ class Saved extends Component {
     constructor(props){
     super(props)
     this.state = {
-      userIdhard: "5d5f273a93a2be0a8413a2d3",
       userId: this.props.userId,
       schools: [],
       message: "Check out your saved schools and add notes"
@@ -17,12 +16,12 @@ class Saved extends Component {
     this.getCollege = this.getCollege.bind(this)
     this.componentDidMount = this.componentDidMount.bind(this)
     // this.shouldComponentUpdate= this.shouldComponentUpdate.bind(this)
-    this.getUserColleges = this.getUserColleges.bind(this)
+  
   }
 
   
   getCollege(){
-    const userhard =this.state.userIdhard;
+    
     const userId = this.props.userId
     console.log("USer ID saved pg : "+ userId)
     Axios.get(`/save/`,{
@@ -34,11 +33,12 @@ class Saved extends Component {
 
         console.log("get college step 4")
         console.log(response.data)
+
         this.setState({
           schools:response.data
         })
       }else{
-        console.log('no colleges saved')
+        return console.log('no colleges saved')
       }
     })
   }
