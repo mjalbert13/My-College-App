@@ -1,41 +1,66 @@
 import React, {Component} from "react";
 import Axios from "axios";
-import "./Saved.css";
+import {BrowserRouter as Router} from 'react-router-dom'
+import API from'../../utils/Api'
+import  "./Saved.css";
 
 
 class Saved extends Component {
    
-    constructor(){
-    super()
+    constructor(props){
+    super(props)
     this.state = {
-      userIdhard: "5d5f273a93a2be0a8413a2d3",
+
+      loggedin:this.props.loggedin,
+      userId: this.props.userId,
+
       schools: [],
       message: "Check out your saved schools and add notes"
     };
     this.getCollege = this.getCollege.bind(this)
     this.componentDidMount = this.componentDidMount.bind(this)
+    // this.shouldComponentUpdate= this.shouldComponentUpdate.bind(this)
+  
   }
 
-  componentDidMount() {
-    
- 
-  }
 
+  
   getCollege(){
-    const user =this.state.userIdhard
-    console.log("USer ID saved pg : "+ user)
-    Axios.get('/save/').then(response => {
+    
+    const userId = this.props.userId
+    console.log("USer ID saved pg : "+ userId)
+    Axios.get(`/save/`,{
+      params:{
+        user: userId
+      }
+    }).then(response => {
+
       if(response.data){
+
+        console.log("get college step 4")
         console.log(response.data)
+
         this.setState({
           schools:response.data
         })
+        return
       }else{
-        console.log('no colleges saved')
+        return console.log('no colleges saved')
       }
     })
   }
+
+  
+
+  componentDidMount() {
+    this.setState({
+      userId:this.props.userId
+    })
+  }
+
   render(){
+    console.log(this.props)
+    console.log(this.state.userId)
       return (
       <div>
         
@@ -49,9 +74,16 @@ class Saved extends Component {
         </div>
         
         {/* Click button to show my colleges */}
-        <button type="submit" className="btn btn-danger btn-block" onClick={this.getCollege}>
-          My Saved Colleges
-        </button>
+
+        
+        
+          <div className="col-md-6">
+          <button type="submit" className="btn btn-danger btn-block" onClick={this.getCollege}>
+            My Saved Colleges
+          </button>
+          </div>
+       
+      
 
         <div className="container">
           <div className="row">

@@ -1,13 +1,15 @@
-import React from "react";
+import React, {Component}from "react";
 import API from "../../utils/Api";
 import APIZip from "../../utils/ApiByZip";
 import APICostPublic from "../../utils/ApiByCostPublic";
 import APICostPrivate from "../../utils/ApiByCostPrivate";
 import "../searchForms/colleges.css";
 
-class Colleges extends React.Component {
+class Colleges extends Component {
 
-    state = {
+  constructor(props){
+    super(props)
+    this.state = {
         college: "",
         searchedZip: "",
         costBegin: "",
@@ -15,9 +17,12 @@ class Colleges extends React.Component {
         publicChecked: false,
         privateChecked: false,
         result: [],
-        userId: this.props.userId
-    }
 
+        userId: this.props.userId,
+        loggedIn: false
+
+    }
+  }
     searchColleges = query => {
         API.search(query)
         .then(res =>
@@ -105,7 +110,9 @@ class Colleges extends React.Component {
         console.log(collegeName);
         console.log(collegeName.id);
         console.log(this.state.userId)
-        const userCollege = this.state.userId
+
+        const userCollege = this.props.userId
+
         API.saveCollege({
           id: collegeName.id,
           school: collegeName['school.name'],
@@ -119,6 +126,7 @@ class Colleges extends React.Component {
     
     
   render () {
+    console.log(this.props.userId)
     return (
     <div>
        
@@ -218,11 +226,16 @@ class Colleges extends React.Component {
             <small>Cost (private): {result['latest.cost.avg_net_price.private']}</small>
             <small>Cost (public): {result['latest.cost.avg_net_price.public']}</small>
             <small><a href={'http://' + result['school.school_url']} target='blank' class="text-white">{result['school.school_url']}</a></small>
-            <button
-                onClick={() => this.handleCollegeSave(result.id)}
-                className="btn btn-primary ml-2">
-                Save
+           {this.props.loggedIn ? (
+              <button
+              onClick={() => this.handleCollegeSave(result.id)}
+              className="btn btn-primary ml-2">
+              Save
              </button>
+           ):(
+            <span></span>
+           )
+           }
             </div>
         </a>
         </li>
