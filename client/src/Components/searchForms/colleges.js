@@ -122,7 +122,7 @@ class Colleges extends Component {
           userId: userCollege
         })
         // .then(API.getColleges());
-      };
+    };  
     
     
   render () {
