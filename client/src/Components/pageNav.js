@@ -28,6 +28,7 @@ class pageNav extends Component {
         this.setState({
           redirectTo: "/"
         })
+        return
       }
     }).catch(error => {
       console.log("Logout error " +error)
