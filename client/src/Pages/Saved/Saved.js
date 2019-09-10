@@ -72,16 +72,23 @@ class Saved extends Component {
             </div>
           </div>
         </div>
-        
-        {/* Click button to show my colleges */}
+          
+        <div className="container">
+        <div className="row align-items-center"> 
+          <div className="col-sm">
+            
+            {/* Click button to show my colleges */}
 
         
         
-          <div className="col-md-6">
+       
           <button type="submit" className="btn btn-danger btn-block" onClick={this.getCollege}>
-            My Saved Colleges
+           Click to view My Saved Colleges
           </button>
-          </div>
+          
+        </div>
+        </div>
+        </div>
        
       
 
