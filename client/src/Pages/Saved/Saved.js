@@ -49,6 +49,7 @@ handleCollegeSave = id => {
 };  
 
 handleFormSubmit = event => {
+  console.log("clicking button")
   event.preventDefault();
   this.handleNoteSave(this.state.note);
 };
