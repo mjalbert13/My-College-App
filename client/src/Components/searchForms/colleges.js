@@ -121,8 +121,8 @@ class Colleges extends Component {
           costPublic: collegeName['latest.cost.avg_net_price.public'],
           userId: userCollege
         })
-        .then(API.getColleges());
-    };  
+        // .then(API.getColleges());
+      };
     
     
   render () {
