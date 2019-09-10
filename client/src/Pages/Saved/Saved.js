@@ -30,16 +30,35 @@ getCollege(){
     }
   })
 }
+
+handleCollegeSave = id => {
+  console.log(this.state.result);
+  console.log("starting to save!");
+  const collegeName = this.state.result.find(college => college.id === id);
+  console.log(collegeName);
+  console.log(collegeName.id);
+
+  API.saveCollege({
+    id: collegeName.id,
+    school: collegeName['school.name'],
+    location: collegeName['school.state'],
+    costPrivate: collegeName['latest.cost.avg_net_price.private'],
+    costPublic: collegeName['latest.cost.avg_net_price.public'],
+    note: collegeName.note
+  }).then(API.getColleges());
+};  
+
 handleFormSubmit = event => {
   event.preventDefault();
   this.handleNoteSave(this.state.note);
 };
-handleNoteSave = collegeResultNote => {
+handleNoteSave = (collegeResultNote) => {
+  const saveNote =this.state.notes
   API.saveNote({
-    id: collegeResultNote.id,
-    notes: collegeResultNote.note,
-    date: collegeResultNote.date
-  }).then(API.getColleges(), console.log("note: " + collegeResultNote.note));
+   id: collegeResultNote.id,
+   notes: saveNote,
+   date: collegeResultNote.date
+  }).then(API.handleCollegeSave(), console.log("note: " + collegeResultNote.note));
 };
 
   handleInputChange = event => {
