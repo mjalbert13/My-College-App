@@ -51,6 +51,7 @@ router.get('/', (req, res) => {
         }
         console.log("show all colleges GetCollege Route 44")
         res.json(colleges).status(200).send();
+        return
     })
 })
 

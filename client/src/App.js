@@ -42,7 +42,9 @@ class App extends Component {
           loggedIn: true,
           name: response.data.user.firstName,
           userId: response.data.user._id
+        
         })
+        console.log("App.js user Id:  "+response.data.user._id)
       }else {
         // console.log('no user yet')
         this.setState({

@@ -67,6 +67,7 @@ class Login extends Component {
             loggedIn: true
         })
         console.log(this.state)
+        return
     }
 
     render() {
